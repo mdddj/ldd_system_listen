@@ -1,0 +1,11 @@
+[package]
+name = "ldd_system_listen"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+rdev = { version = "0.5.3", futures = ["serialize"] }
+flutter_rust_bridge = "=2.1.0"
