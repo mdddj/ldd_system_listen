@@ -1,3 +1,8 @@
+use std::{
+    thread,
+    time::{Duration, Instant},
+};
+
 use crate::frb_generated::StreamSink;
 use rdev::{listen, Button, Event, EventType, Key};
 
@@ -12,6 +17,116 @@ pub fn start_listen_system_event(sink: StreamSink<LddEvent>) -> Result<(), Strin
     }
 }
 
+#[derive(Debug, Clone, PartialEq)]
+pub enum LddKeyboardValue {
+    ScanGunValue(String, u128),
+    KeyboardValue(LddEvent, u128),
+}
+
+/// [millis] 设置字符输入之间的最大时间间隔，小于此时间则认为是连续输入
+/// [min_size] 假设扫码枪至少输入 10 个字符以上，作为判定标准之一
+pub fn start_listen_systen_event_by_ldd(
+    sink: StreamSink<LddKeyboardValue>,
+    millis: Option<u64>,
+    min_size: Option<usize>,
+) {
+    let mut last_event_time = Instant::now();
+    let mut input_buffer = String::new();
+
+    // 使用 10 作为默认值，如果传入 None 则使用默认值
+    let millis = millis.unwrap_or(10);
+    let min_size = min_size.unwrap_or(10);
+
+    let mut first_char: Option<char> = None;
+    let mut is_gun = false;
+
+    if let Err(error) = listen(move |event| {
+        let ldd_event: LddEvent = event.clone().into();
+        let _ = callback(
+            event,
+            &mut last_event_time,
+            &mut input_buffer,
+            &mut first_char,
+            millis,
+            min_size,
+            &mut is_gun,
+            |v, d| {
+                let mill = d.as_millis();
+                let _ = sink.add(LddKeyboardValue::ScanGunValue(v, mill));
+            },
+            |d| {
+                let _ = sink.add(LddKeyboardValue::KeyboardValue(
+                    ldd_event.clone(),
+                    d.as_millis(),
+                ));
+            },
+        );
+    }) {
+        // println!("Error: {:?}", error);
+        // 可以在这里添加进一步的错误处理逻辑，如重试机制或安全退出
+        panic!("error:{:?}", error);
+    }
+}
+
+async fn callback<F, K>(
+    event: Event,
+    last_event_time: &mut Instant,
+    input_buffer: &mut String,
+    first_char: &mut Option<char>,
+    millis: u64,
+    min_size: usize,
+    is_gun: &mut bool,
+    call: F,
+    keyboard_call: K,
+) where
+    F: Fn(String, Duration),
+    K: Fn(Duration),
+{
+    let threshold = Duration::from_millis(millis);
+
+    if let EventType::KeyPress(key) = event.event_type {
+        let now = Instant::now();
+        let duration = now.duration_since(*last_event_time);
+
+        //间隔时间大于阈值,清空缓存,标注键盘输入
+        if duration >= threshold {
+            input_buffer.clear();
+        }
+
+        *last_event_time = now;
+
+        if let Some(key_char) = event.name.and_then(|name| name.chars().next()) {
+            if duration < threshold {
+                *is_gun = true;
+                input_buffer.push(key_char);
+
+                if key == Key::Return {
+                    if let Some(f) = *first_char {
+                        input_buffer.insert(0, f);
+                    }
+                    let str = input_buffer.clone();
+                    if !str.is_empty() {
+                        call(str, duration);
+                    }
+                    input_buffer.clear();
+                    *first_char = None;
+                    *is_gun = false;
+                }
+            } else {
+                thread::sleep(Duration::from_millis(millis * 2));
+                if !*is_gun {
+                    keyboard_call(duration);
+
+                    input_buffer.clear();
+                } else {
+                    *first_char = Some(key_char);
+                }
+            }
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq)]
 pub struct LddEvent {
     pub name: Option<String>,
     pub event_type: LddEventType,
@@ -26,6 +141,7 @@ impl From<Event> for LddEvent {
     }
 }
 
+#[derive(Debug, Clone, PartialEq)]
 pub enum LddEventType {
     KeyPress(LddKey),
     KeyRelease(LddKey),
@@ -48,6 +164,7 @@ impl From<EventType> for LddEventType {
     }
 }
 
+#[derive(Debug, Clone, PartialEq)]
 pub enum LddButton {
     Left,
     Right,
@@ -65,6 +182,7 @@ impl From<Button> for LddButton {
     }
 }
 
+#[derive(Debug, Clone, PartialEq)]
 pub enum LddKey {
     Alt,
     AltGr,

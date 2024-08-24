@@ -83,6 +83,9 @@ class _$LddButtonCopyWithImpl<$Res, $Val extends LddButton>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LddButton
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -99,6 +102,9 @@ class __$$LddButton_LeftImplCopyWithImpl<$Res>
   __$$LddButton_LeftImplCopyWithImpl(
       _$LddButton_LeftImpl _value, $Res Function(_$LddButton_LeftImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddButton
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -214,6 +220,9 @@ class __$$LddButton_RightImplCopyWithImpl<$Res>
   __$$LddButton_RightImplCopyWithImpl(
       _$LddButton_RightImpl _value, $Res Function(_$LddButton_RightImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddButton
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -329,6 +338,9 @@ class __$$LddButton_MiddleImplCopyWithImpl<$Res>
   __$$LddButton_MiddleImplCopyWithImpl(_$LddButton_MiddleImpl _value,
       $Res Function(_$LddButton_MiddleImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddButton
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -447,6 +459,8 @@ class __$$LddButton_UnknownImplCopyWithImpl<$Res>
       $Res Function(_$LddButton_UnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LddButton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -485,7 +499,9 @@ class _$LddButton_UnknownImpl extends LddButton_Unknown {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LddButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LddButton_UnknownImplCopyWith<_$LddButton_UnknownImpl> get copyWith =>
@@ -572,7 +588,10 @@ abstract class LddButton_Unknown extends LddButton {
   const LddButton_Unknown._() : super._();
 
   int get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LddButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddButton_UnknownImplCopyWith<_$LddButton_UnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -659,6 +678,9 @@ class _$LddEventTypeCopyWithImpl<$Res, $Val extends LddEventType>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -681,6 +703,8 @@ class __$$LddEventType_KeyPressImplCopyWithImpl<$Res>
       $Res Function(_$LddEventType_KeyPressImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -694,6 +718,8 @@ class __$$LddEventType_KeyPressImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LddKeyCopyWith<$Res> get field0 {
@@ -727,7 +753,9 @@ class _$LddEventType_KeyPressImpl extends LddEventType_KeyPress {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LddEventType_KeyPressImplCopyWith<_$LddEventType_KeyPressImpl>
@@ -827,7 +855,10 @@ abstract class LddEventType_KeyPress extends LddEventType {
   const LddEventType_KeyPress._() : super._();
 
   LddKey get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddEventType_KeyPressImplCopyWith<_$LddEventType_KeyPressImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -853,6 +884,8 @@ class __$$LddEventType_KeyReleaseImplCopyWithImpl<$Res>
       $Res Function(_$LddEventType_KeyReleaseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -866,6 +899,8 @@ class __$$LddEventType_KeyReleaseImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LddKeyCopyWith<$Res> get field0 {
@@ -899,7 +934,9 @@ class _$LddEventType_KeyReleaseImpl extends LddEventType_KeyRelease {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LddEventType_KeyReleaseImplCopyWith<_$LddEventType_KeyReleaseImpl>
@@ -999,7 +1036,10 @@ abstract class LddEventType_KeyRelease extends LddEventType {
   const LddEventType_KeyRelease._() : super._();
 
   LddKey get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddEventType_KeyReleaseImplCopyWith<_$LddEventType_KeyReleaseImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1025,6 +1065,8 @@ class __$$LddEventType_ButtonPressImplCopyWithImpl<$Res>
       $Res Function(_$LddEventType_ButtonPressImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1038,6 +1080,8 @@ class __$$LddEventType_ButtonPressImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LddButtonCopyWith<$Res> get field0 {
@@ -1071,7 +1115,9 @@ class _$LddEventType_ButtonPressImpl extends LddEventType_ButtonPress {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LddEventType_ButtonPressImplCopyWith<_$LddEventType_ButtonPressImpl>
@@ -1171,7 +1217,10 @@ abstract class LddEventType_ButtonPress extends LddEventType {
   const LddEventType_ButtonPress._() : super._();
 
   LddButton get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddEventType_ButtonPressImplCopyWith<_$LddEventType_ButtonPressImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1197,6 +1246,8 @@ class __$$LddEventType_ButtonReleaseImplCopyWithImpl<$Res>
       $Res Function(_$LddEventType_ButtonReleaseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1210,6 +1261,8 @@ class __$$LddEventType_ButtonReleaseImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LddButtonCopyWith<$Res> get field0 {
@@ -1243,7 +1296,9 @@ class _$LddEventType_ButtonReleaseImpl extends LddEventType_ButtonRelease {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LddEventType_ButtonReleaseImplCopyWith<_$LddEventType_ButtonReleaseImpl>
@@ -1343,7 +1398,10 @@ abstract class LddEventType_ButtonRelease extends LddEventType {
   const LddEventType_ButtonRelease._() : super._();
 
   LddButton get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddEventType_ButtonReleaseImplCopyWith<_$LddEventType_ButtonReleaseImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1367,6 +1425,8 @@ class __$$LddEventType_MouseMoveImplCopyWithImpl<$Res>
       $Res Function(_$LddEventType_MouseMoveImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1414,7 +1474,9 @@ class _$LddEventType_MouseMoveImpl extends LddEventType_MouseMove {
   @override
   int get hashCode => Object.hash(runtimeType, x, y);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LddEventType_MouseMoveImplCopyWith<_$LddEventType_MouseMoveImpl>
@@ -1516,7 +1578,10 @@ abstract class LddEventType_MouseMove extends LddEventType {
 
   double get x;
   double get y;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddEventType_MouseMoveImplCopyWith<_$LddEventType_MouseMoveImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1538,6 +1603,8 @@ class __$$LddEventType_WheelImplCopyWithImpl<$Res>
       $Res Function(_$LddEventType_WheelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1585,7 +1652,9 @@ class _$LddEventType_WheelImpl extends LddEventType_Wheel {
   @override
   int get hashCode => Object.hash(runtimeType, deltaX, deltaY);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LddEventType_WheelImplCopyWith<_$LddEventType_WheelImpl> get copyWith =>
@@ -1687,7 +1756,10 @@ abstract class LddEventType_Wheel extends LddEventType {
 
   int get deltaX;
   int get deltaY;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LddEventType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddEventType_WheelImplCopyWith<_$LddEventType_WheelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2373,6 +2445,9 @@ class _$LddKeyCopyWithImpl<$Res, $Val extends LddKey>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2389,6 +2464,9 @@ class __$$LddKey_AltImplCopyWithImpl<$Res>
   __$$LddKey_AltImplCopyWithImpl(
       _$LddKey_AltImpl _value, $Res Function(_$LddKey_AltImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -3116,6 +3194,9 @@ class __$$LddKey_AltGrImplCopyWithImpl<$Res>
   __$$LddKey_AltGrImplCopyWithImpl(
       _$LddKey_AltGrImpl _value, $Res Function(_$LddKey_AltGrImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -3843,6 +3924,9 @@ class __$$LddKey_BackspaceImplCopyWithImpl<$Res>
   __$$LddKey_BackspaceImplCopyWithImpl(_$LddKey_BackspaceImpl _value,
       $Res Function(_$LddKey_BackspaceImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -4570,6 +4654,9 @@ class __$$LddKey_CapsLockImplCopyWithImpl<$Res>
   __$$LddKey_CapsLockImplCopyWithImpl(
       _$LddKey_CapsLockImpl _value, $Res Function(_$LddKey_CapsLockImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -5297,6 +5384,9 @@ class __$$LddKey_ControlLeftImplCopyWithImpl<$Res>
   __$$LddKey_ControlLeftImplCopyWithImpl(_$LddKey_ControlLeftImpl _value,
       $Res Function(_$LddKey_ControlLeftImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -6024,6 +6114,9 @@ class __$$LddKey_ControlRightImplCopyWithImpl<$Res>
   __$$LddKey_ControlRightImplCopyWithImpl(_$LddKey_ControlRightImpl _value,
       $Res Function(_$LddKey_ControlRightImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -6752,6 +6845,9 @@ class __$$LddKey_DeleteImplCopyWithImpl<$Res>
   __$$LddKey_DeleteImplCopyWithImpl(
       _$LddKey_DeleteImpl _value, $Res Function(_$LddKey_DeleteImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -7479,6 +7575,9 @@ class __$$LddKey_DownArrowImplCopyWithImpl<$Res>
   __$$LddKey_DownArrowImplCopyWithImpl(_$LddKey_DownArrowImpl _value,
       $Res Function(_$LddKey_DownArrowImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -8206,6 +8305,9 @@ class __$$LddKey_EndImplCopyWithImpl<$Res>
   __$$LddKey_EndImplCopyWithImpl(
       _$LddKey_EndImpl _value, $Res Function(_$LddKey_EndImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -8933,6 +9035,9 @@ class __$$LddKey_EscapeImplCopyWithImpl<$Res>
   __$$LddKey_EscapeImplCopyWithImpl(
       _$LddKey_EscapeImpl _value, $Res Function(_$LddKey_EscapeImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -9660,6 +9765,9 @@ class __$$LddKey_F1ImplCopyWithImpl<$Res>
   __$$LddKey_F1ImplCopyWithImpl(
       _$LddKey_F1Impl _value, $Res Function(_$LddKey_F1Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -10387,6 +10495,9 @@ class __$$LddKey_F10ImplCopyWithImpl<$Res>
   __$$LddKey_F10ImplCopyWithImpl(
       _$LddKey_F10Impl _value, $Res Function(_$LddKey_F10Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -11114,6 +11225,9 @@ class __$$LddKey_F11ImplCopyWithImpl<$Res>
   __$$LddKey_F11ImplCopyWithImpl(
       _$LddKey_F11Impl _value, $Res Function(_$LddKey_F11Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -11841,6 +11955,9 @@ class __$$LddKey_F12ImplCopyWithImpl<$Res>
   __$$LddKey_F12ImplCopyWithImpl(
       _$LddKey_F12Impl _value, $Res Function(_$LddKey_F12Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -12568,6 +12685,9 @@ class __$$LddKey_F2ImplCopyWithImpl<$Res>
   __$$LddKey_F2ImplCopyWithImpl(
       _$LddKey_F2Impl _value, $Res Function(_$LddKey_F2Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -13295,6 +13415,9 @@ class __$$LddKey_F3ImplCopyWithImpl<$Res>
   __$$LddKey_F3ImplCopyWithImpl(
       _$LddKey_F3Impl _value, $Res Function(_$LddKey_F3Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -14022,6 +14145,9 @@ class __$$LddKey_F4ImplCopyWithImpl<$Res>
   __$$LddKey_F4ImplCopyWithImpl(
       _$LddKey_F4Impl _value, $Res Function(_$LddKey_F4Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -14749,6 +14875,9 @@ class __$$LddKey_F5ImplCopyWithImpl<$Res>
   __$$LddKey_F5ImplCopyWithImpl(
       _$LddKey_F5Impl _value, $Res Function(_$LddKey_F5Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -15476,6 +15605,9 @@ class __$$LddKey_F6ImplCopyWithImpl<$Res>
   __$$LddKey_F6ImplCopyWithImpl(
       _$LddKey_F6Impl _value, $Res Function(_$LddKey_F6Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -16203,6 +16335,9 @@ class __$$LddKey_F7ImplCopyWithImpl<$Res>
   __$$LddKey_F7ImplCopyWithImpl(
       _$LddKey_F7Impl _value, $Res Function(_$LddKey_F7Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -16930,6 +17065,9 @@ class __$$LddKey_F8ImplCopyWithImpl<$Res>
   __$$LddKey_F8ImplCopyWithImpl(
       _$LddKey_F8Impl _value, $Res Function(_$LddKey_F8Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -17657,6 +17795,9 @@ class __$$LddKey_F9ImplCopyWithImpl<$Res>
   __$$LddKey_F9ImplCopyWithImpl(
       _$LddKey_F9Impl _value, $Res Function(_$LddKey_F9Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -18384,6 +18525,9 @@ class __$$LddKey_HomeImplCopyWithImpl<$Res>
   __$$LddKey_HomeImplCopyWithImpl(
       _$LddKey_HomeImpl _value, $Res Function(_$LddKey_HomeImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -19111,6 +19255,9 @@ class __$$LddKey_LeftArrowImplCopyWithImpl<$Res>
   __$$LddKey_LeftArrowImplCopyWithImpl(_$LddKey_LeftArrowImpl _value,
       $Res Function(_$LddKey_LeftArrowImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -19838,6 +19985,9 @@ class __$$LddKey_MetaLeftImplCopyWithImpl<$Res>
   __$$LddKey_MetaLeftImplCopyWithImpl(
       _$LddKey_MetaLeftImpl _value, $Res Function(_$LddKey_MetaLeftImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -20565,6 +20715,9 @@ class __$$LddKey_MetaRightImplCopyWithImpl<$Res>
   __$$LddKey_MetaRightImplCopyWithImpl(_$LddKey_MetaRightImpl _value,
       $Res Function(_$LddKey_MetaRightImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -21292,6 +21445,9 @@ class __$$LddKey_PageDownImplCopyWithImpl<$Res>
   __$$LddKey_PageDownImplCopyWithImpl(
       _$LddKey_PageDownImpl _value, $Res Function(_$LddKey_PageDownImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -22019,6 +22175,9 @@ class __$$LddKey_PageUpImplCopyWithImpl<$Res>
   __$$LddKey_PageUpImplCopyWithImpl(
       _$LddKey_PageUpImpl _value, $Res Function(_$LddKey_PageUpImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -22746,6 +22905,9 @@ class __$$LddKey_ReturnImplCopyWithImpl<$Res>
   __$$LddKey_ReturnImplCopyWithImpl(
       _$LddKey_ReturnImpl _value, $Res Function(_$LddKey_ReturnImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -23473,6 +23635,9 @@ class __$$LddKey_RightArrowImplCopyWithImpl<$Res>
   __$$LddKey_RightArrowImplCopyWithImpl(_$LddKey_RightArrowImpl _value,
       $Res Function(_$LddKey_RightArrowImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -24200,6 +24365,9 @@ class __$$LddKey_ShiftLeftImplCopyWithImpl<$Res>
   __$$LddKey_ShiftLeftImplCopyWithImpl(_$LddKey_ShiftLeftImpl _value,
       $Res Function(_$LddKey_ShiftLeftImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -24927,6 +25095,9 @@ class __$$LddKey_ShiftRightImplCopyWithImpl<$Res>
   __$$LddKey_ShiftRightImplCopyWithImpl(_$LddKey_ShiftRightImpl _value,
       $Res Function(_$LddKey_ShiftRightImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -25654,6 +25825,9 @@ class __$$LddKey_SpaceImplCopyWithImpl<$Res>
   __$$LddKey_SpaceImplCopyWithImpl(
       _$LddKey_SpaceImpl _value, $Res Function(_$LddKey_SpaceImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -26381,6 +26555,9 @@ class __$$LddKey_TabImplCopyWithImpl<$Res>
   __$$LddKey_TabImplCopyWithImpl(
       _$LddKey_TabImpl _value, $Res Function(_$LddKey_TabImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -27108,6 +27285,9 @@ class __$$LddKey_UpArrowImplCopyWithImpl<$Res>
   __$$LddKey_UpArrowImplCopyWithImpl(
       _$LddKey_UpArrowImpl _value, $Res Function(_$LddKey_UpArrowImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -27835,6 +28015,9 @@ class __$$LddKey_PrintScreenImplCopyWithImpl<$Res>
   __$$LddKey_PrintScreenImplCopyWithImpl(_$LddKey_PrintScreenImpl _value,
       $Res Function(_$LddKey_PrintScreenImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -28562,6 +28745,9 @@ class __$$LddKey_ScrollLockImplCopyWithImpl<$Res>
   __$$LddKey_ScrollLockImplCopyWithImpl(_$LddKey_ScrollLockImpl _value,
       $Res Function(_$LddKey_ScrollLockImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -29289,6 +29475,9 @@ class __$$LddKey_PauseImplCopyWithImpl<$Res>
   __$$LddKey_PauseImplCopyWithImpl(
       _$LddKey_PauseImpl _value, $Res Function(_$LddKey_PauseImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -30016,6 +30205,9 @@ class __$$LddKey_NumLockImplCopyWithImpl<$Res>
   __$$LddKey_NumLockImplCopyWithImpl(
       _$LddKey_NumLockImpl _value, $Res Function(_$LddKey_NumLockImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -30743,6 +30935,9 @@ class __$$LddKey_BackQuoteImplCopyWithImpl<$Res>
   __$$LddKey_BackQuoteImplCopyWithImpl(_$LddKey_BackQuoteImpl _value,
       $Res Function(_$LddKey_BackQuoteImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -31470,6 +31665,9 @@ class __$$LddKey_Num1ImplCopyWithImpl<$Res>
   __$$LddKey_Num1ImplCopyWithImpl(
       _$LddKey_Num1Impl _value, $Res Function(_$LddKey_Num1Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -32197,6 +32395,9 @@ class __$$LddKey_Num2ImplCopyWithImpl<$Res>
   __$$LddKey_Num2ImplCopyWithImpl(
       _$LddKey_Num2Impl _value, $Res Function(_$LddKey_Num2Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -32924,6 +33125,9 @@ class __$$LddKey_Num3ImplCopyWithImpl<$Res>
   __$$LddKey_Num3ImplCopyWithImpl(
       _$LddKey_Num3Impl _value, $Res Function(_$LddKey_Num3Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -33651,6 +33855,9 @@ class __$$LddKey_Num4ImplCopyWithImpl<$Res>
   __$$LddKey_Num4ImplCopyWithImpl(
       _$LddKey_Num4Impl _value, $Res Function(_$LddKey_Num4Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -34378,6 +34585,9 @@ class __$$LddKey_Num5ImplCopyWithImpl<$Res>
   __$$LddKey_Num5ImplCopyWithImpl(
       _$LddKey_Num5Impl _value, $Res Function(_$LddKey_Num5Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -35105,6 +35315,9 @@ class __$$LddKey_Num6ImplCopyWithImpl<$Res>
   __$$LddKey_Num6ImplCopyWithImpl(
       _$LddKey_Num6Impl _value, $Res Function(_$LddKey_Num6Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -35832,6 +36045,9 @@ class __$$LddKey_Num7ImplCopyWithImpl<$Res>
   __$$LddKey_Num7ImplCopyWithImpl(
       _$LddKey_Num7Impl _value, $Res Function(_$LddKey_Num7Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -36559,6 +36775,9 @@ class __$$LddKey_Num8ImplCopyWithImpl<$Res>
   __$$LddKey_Num8ImplCopyWithImpl(
       _$LddKey_Num8Impl _value, $Res Function(_$LddKey_Num8Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -37286,6 +37505,9 @@ class __$$LddKey_Num9ImplCopyWithImpl<$Res>
   __$$LddKey_Num9ImplCopyWithImpl(
       _$LddKey_Num9Impl _value, $Res Function(_$LddKey_Num9Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -38013,6 +38235,9 @@ class __$$LddKey_Num0ImplCopyWithImpl<$Res>
   __$$LddKey_Num0ImplCopyWithImpl(
       _$LddKey_Num0Impl _value, $Res Function(_$LddKey_Num0Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -38740,6 +38965,9 @@ class __$$LddKey_MinusImplCopyWithImpl<$Res>
   __$$LddKey_MinusImplCopyWithImpl(
       _$LddKey_MinusImpl _value, $Res Function(_$LddKey_MinusImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -39467,6 +39695,9 @@ class __$$LddKey_EqualImplCopyWithImpl<$Res>
   __$$LddKey_EqualImplCopyWithImpl(
       _$LddKey_EqualImpl _value, $Res Function(_$LddKey_EqualImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -40194,6 +40425,9 @@ class __$$LddKey_KeyQImplCopyWithImpl<$Res>
   __$$LddKey_KeyQImplCopyWithImpl(
       _$LddKey_KeyQImpl _value, $Res Function(_$LddKey_KeyQImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -40921,6 +41155,9 @@ class __$$LddKey_KeyWImplCopyWithImpl<$Res>
   __$$LddKey_KeyWImplCopyWithImpl(
       _$LddKey_KeyWImpl _value, $Res Function(_$LddKey_KeyWImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -41648,6 +41885,9 @@ class __$$LddKey_KeyEImplCopyWithImpl<$Res>
   __$$LddKey_KeyEImplCopyWithImpl(
       _$LddKey_KeyEImpl _value, $Res Function(_$LddKey_KeyEImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -42375,6 +42615,9 @@ class __$$LddKey_KeyRImplCopyWithImpl<$Res>
   __$$LddKey_KeyRImplCopyWithImpl(
       _$LddKey_KeyRImpl _value, $Res Function(_$LddKey_KeyRImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -43102,6 +43345,9 @@ class __$$LddKey_KeyTImplCopyWithImpl<$Res>
   __$$LddKey_KeyTImplCopyWithImpl(
       _$LddKey_KeyTImpl _value, $Res Function(_$LddKey_KeyTImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -43829,6 +44075,9 @@ class __$$LddKey_KeyYImplCopyWithImpl<$Res>
   __$$LddKey_KeyYImplCopyWithImpl(
       _$LddKey_KeyYImpl _value, $Res Function(_$LddKey_KeyYImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -44556,6 +44805,9 @@ class __$$LddKey_KeyUImplCopyWithImpl<$Res>
   __$$LddKey_KeyUImplCopyWithImpl(
       _$LddKey_KeyUImpl _value, $Res Function(_$LddKey_KeyUImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -45283,6 +45535,9 @@ class __$$LddKey_KeyIImplCopyWithImpl<$Res>
   __$$LddKey_KeyIImplCopyWithImpl(
       _$LddKey_KeyIImpl _value, $Res Function(_$LddKey_KeyIImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -46010,6 +46265,9 @@ class __$$LddKey_KeyOImplCopyWithImpl<$Res>
   __$$LddKey_KeyOImplCopyWithImpl(
       _$LddKey_KeyOImpl _value, $Res Function(_$LddKey_KeyOImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -46737,6 +46995,9 @@ class __$$LddKey_KeyPImplCopyWithImpl<$Res>
   __$$LddKey_KeyPImplCopyWithImpl(
       _$LddKey_KeyPImpl _value, $Res Function(_$LddKey_KeyPImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -47464,6 +47725,9 @@ class __$$LddKey_LeftBracketImplCopyWithImpl<$Res>
   __$$LddKey_LeftBracketImplCopyWithImpl(_$LddKey_LeftBracketImpl _value,
       $Res Function(_$LddKey_LeftBracketImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -48191,6 +48455,9 @@ class __$$LddKey_RightBracketImplCopyWithImpl<$Res>
   __$$LddKey_RightBracketImplCopyWithImpl(_$LddKey_RightBracketImpl _value,
       $Res Function(_$LddKey_RightBracketImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -48919,6 +49186,9 @@ class __$$LddKey_KeyAImplCopyWithImpl<$Res>
   __$$LddKey_KeyAImplCopyWithImpl(
       _$LddKey_KeyAImpl _value, $Res Function(_$LddKey_KeyAImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -49646,6 +49916,9 @@ class __$$LddKey_KeySImplCopyWithImpl<$Res>
   __$$LddKey_KeySImplCopyWithImpl(
       _$LddKey_KeySImpl _value, $Res Function(_$LddKey_KeySImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -50373,6 +50646,9 @@ class __$$LddKey_KeyDImplCopyWithImpl<$Res>
   __$$LddKey_KeyDImplCopyWithImpl(
       _$LddKey_KeyDImpl _value, $Res Function(_$LddKey_KeyDImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -51100,6 +51376,9 @@ class __$$LddKey_KeyFImplCopyWithImpl<$Res>
   __$$LddKey_KeyFImplCopyWithImpl(
       _$LddKey_KeyFImpl _value, $Res Function(_$LddKey_KeyFImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -51827,6 +52106,9 @@ class __$$LddKey_KeyGImplCopyWithImpl<$Res>
   __$$LddKey_KeyGImplCopyWithImpl(
       _$LddKey_KeyGImpl _value, $Res Function(_$LddKey_KeyGImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -52554,6 +52836,9 @@ class __$$LddKey_KeyHImplCopyWithImpl<$Res>
   __$$LddKey_KeyHImplCopyWithImpl(
       _$LddKey_KeyHImpl _value, $Res Function(_$LddKey_KeyHImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -53281,6 +53566,9 @@ class __$$LddKey_KeyJImplCopyWithImpl<$Res>
   __$$LddKey_KeyJImplCopyWithImpl(
       _$LddKey_KeyJImpl _value, $Res Function(_$LddKey_KeyJImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -54008,6 +54296,9 @@ class __$$LddKey_KeyKImplCopyWithImpl<$Res>
   __$$LddKey_KeyKImplCopyWithImpl(
       _$LddKey_KeyKImpl _value, $Res Function(_$LddKey_KeyKImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -54735,6 +55026,9 @@ class __$$LddKey_KeyLImplCopyWithImpl<$Res>
   __$$LddKey_KeyLImplCopyWithImpl(
       _$LddKey_KeyLImpl _value, $Res Function(_$LddKey_KeyLImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -55462,6 +55756,9 @@ class __$$LddKey_SemiColonImplCopyWithImpl<$Res>
   __$$LddKey_SemiColonImplCopyWithImpl(_$LddKey_SemiColonImpl _value,
       $Res Function(_$LddKey_SemiColonImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -56189,6 +56486,9 @@ class __$$LddKey_QuoteImplCopyWithImpl<$Res>
   __$$LddKey_QuoteImplCopyWithImpl(
       _$LddKey_QuoteImpl _value, $Res Function(_$LddKey_QuoteImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -56916,6 +57216,9 @@ class __$$LddKey_BackSlashImplCopyWithImpl<$Res>
   __$$LddKey_BackSlashImplCopyWithImpl(_$LddKey_BackSlashImpl _value,
       $Res Function(_$LddKey_BackSlashImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -57643,6 +57946,9 @@ class __$$LddKey_IntlBackslashImplCopyWithImpl<$Res>
   __$$LddKey_IntlBackslashImplCopyWithImpl(_$LddKey_IntlBackslashImpl _value,
       $Res Function(_$LddKey_IntlBackslashImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -58371,6 +58677,9 @@ class __$$LddKey_KeyZImplCopyWithImpl<$Res>
   __$$LddKey_KeyZImplCopyWithImpl(
       _$LddKey_KeyZImpl _value, $Res Function(_$LddKey_KeyZImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -59098,6 +59407,9 @@ class __$$LddKey_KeyXImplCopyWithImpl<$Res>
   __$$LddKey_KeyXImplCopyWithImpl(
       _$LddKey_KeyXImpl _value, $Res Function(_$LddKey_KeyXImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -59825,6 +60137,9 @@ class __$$LddKey_KeyCImplCopyWithImpl<$Res>
   __$$LddKey_KeyCImplCopyWithImpl(
       _$LddKey_KeyCImpl _value, $Res Function(_$LddKey_KeyCImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -60552,6 +60867,9 @@ class __$$LddKey_KeyVImplCopyWithImpl<$Res>
   __$$LddKey_KeyVImplCopyWithImpl(
       _$LddKey_KeyVImpl _value, $Res Function(_$LddKey_KeyVImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -61279,6 +61597,9 @@ class __$$LddKey_KeyBImplCopyWithImpl<$Res>
   __$$LddKey_KeyBImplCopyWithImpl(
       _$LddKey_KeyBImpl _value, $Res Function(_$LddKey_KeyBImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -62006,6 +62327,9 @@ class __$$LddKey_KeyNImplCopyWithImpl<$Res>
   __$$LddKey_KeyNImplCopyWithImpl(
       _$LddKey_KeyNImpl _value, $Res Function(_$LddKey_KeyNImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -62733,6 +63057,9 @@ class __$$LddKey_KeyMImplCopyWithImpl<$Res>
   __$$LddKey_KeyMImplCopyWithImpl(
       _$LddKey_KeyMImpl _value, $Res Function(_$LddKey_KeyMImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -63460,6 +63787,9 @@ class __$$LddKey_CommaImplCopyWithImpl<$Res>
   __$$LddKey_CommaImplCopyWithImpl(
       _$LddKey_CommaImpl _value, $Res Function(_$LddKey_CommaImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -64187,6 +64517,9 @@ class __$$LddKey_DotImplCopyWithImpl<$Res>
   __$$LddKey_DotImplCopyWithImpl(
       _$LddKey_DotImpl _value, $Res Function(_$LddKey_DotImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -64914,6 +65247,9 @@ class __$$LddKey_SlashImplCopyWithImpl<$Res>
   __$$LddKey_SlashImplCopyWithImpl(
       _$LddKey_SlashImpl _value, $Res Function(_$LddKey_SlashImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -65641,6 +65977,9 @@ class __$$LddKey_InsertImplCopyWithImpl<$Res>
   __$$LddKey_InsertImplCopyWithImpl(
       _$LddKey_InsertImpl _value, $Res Function(_$LddKey_InsertImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -66368,6 +66707,9 @@ class __$$LddKey_KpReturnImplCopyWithImpl<$Res>
   __$$LddKey_KpReturnImplCopyWithImpl(
       _$LddKey_KpReturnImpl _value, $Res Function(_$LddKey_KpReturnImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -67095,6 +67437,9 @@ class __$$LddKey_KpMinusImplCopyWithImpl<$Res>
   __$$LddKey_KpMinusImplCopyWithImpl(
       _$LddKey_KpMinusImpl _value, $Res Function(_$LddKey_KpMinusImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -67822,6 +68167,9 @@ class __$$LddKey_KpPlusImplCopyWithImpl<$Res>
   __$$LddKey_KpPlusImplCopyWithImpl(
       _$LddKey_KpPlusImpl _value, $Res Function(_$LddKey_KpPlusImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -68549,6 +68897,9 @@ class __$$LddKey_KpMultiplyImplCopyWithImpl<$Res>
   __$$LddKey_KpMultiplyImplCopyWithImpl(_$LddKey_KpMultiplyImpl _value,
       $Res Function(_$LddKey_KpMultiplyImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -69276,6 +69627,9 @@ class __$$LddKey_KpDivideImplCopyWithImpl<$Res>
   __$$LddKey_KpDivideImplCopyWithImpl(
       _$LddKey_KpDivideImpl _value, $Res Function(_$LddKey_KpDivideImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -70003,6 +70357,9 @@ class __$$LddKey_Kp0ImplCopyWithImpl<$Res>
   __$$LddKey_Kp0ImplCopyWithImpl(
       _$LddKey_Kp0Impl _value, $Res Function(_$LddKey_Kp0Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -70730,6 +71087,9 @@ class __$$LddKey_Kp1ImplCopyWithImpl<$Res>
   __$$LddKey_Kp1ImplCopyWithImpl(
       _$LddKey_Kp1Impl _value, $Res Function(_$LddKey_Kp1Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -71457,6 +71817,9 @@ class __$$LddKey_Kp2ImplCopyWithImpl<$Res>
   __$$LddKey_Kp2ImplCopyWithImpl(
       _$LddKey_Kp2Impl _value, $Res Function(_$LddKey_Kp2Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -72184,6 +72547,9 @@ class __$$LddKey_Kp3ImplCopyWithImpl<$Res>
   __$$LddKey_Kp3ImplCopyWithImpl(
       _$LddKey_Kp3Impl _value, $Res Function(_$LddKey_Kp3Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -72911,6 +73277,9 @@ class __$$LddKey_Kp4ImplCopyWithImpl<$Res>
   __$$LddKey_Kp4ImplCopyWithImpl(
       _$LddKey_Kp4Impl _value, $Res Function(_$LddKey_Kp4Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -73638,6 +74007,9 @@ class __$$LddKey_Kp5ImplCopyWithImpl<$Res>
   __$$LddKey_Kp5ImplCopyWithImpl(
       _$LddKey_Kp5Impl _value, $Res Function(_$LddKey_Kp5Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -74365,6 +74737,9 @@ class __$$LddKey_Kp6ImplCopyWithImpl<$Res>
   __$$LddKey_Kp6ImplCopyWithImpl(
       _$LddKey_Kp6Impl _value, $Res Function(_$LddKey_Kp6Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -75092,6 +75467,9 @@ class __$$LddKey_Kp7ImplCopyWithImpl<$Res>
   __$$LddKey_Kp7ImplCopyWithImpl(
       _$LddKey_Kp7Impl _value, $Res Function(_$LddKey_Kp7Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -75819,6 +76197,9 @@ class __$$LddKey_Kp8ImplCopyWithImpl<$Res>
   __$$LddKey_Kp8ImplCopyWithImpl(
       _$LddKey_Kp8Impl _value, $Res Function(_$LddKey_Kp8Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -76546,6 +76927,9 @@ class __$$LddKey_Kp9ImplCopyWithImpl<$Res>
   __$$LddKey_Kp9ImplCopyWithImpl(
       _$LddKey_Kp9Impl _value, $Res Function(_$LddKey_Kp9Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -77273,6 +77657,9 @@ class __$$LddKey_KpDeleteImplCopyWithImpl<$Res>
   __$$LddKey_KpDeleteImplCopyWithImpl(
       _$LddKey_KpDeleteImpl _value, $Res Function(_$LddKey_KpDeleteImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -78000,6 +78387,9 @@ class __$$LddKey_FunctionImplCopyWithImpl<$Res>
   __$$LddKey_FunctionImplCopyWithImpl(
       _$LddKey_FunctionImpl _value, $Res Function(_$LddKey_FunctionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -78730,6 +79120,8 @@ class __$$LddKey_UnknownImplCopyWithImpl<$Res>
       _$LddKey_UnknownImpl _value, $Res Function(_$LddKey_UnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78768,7 +79160,9 @@ class _$LddKey_UnknownImpl extends LddKey_Unknown {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LddKey_UnknownImplCopyWith<_$LddKey_UnknownImpl> get copyWith =>
@@ -79467,7 +79861,428 @@ abstract class LddKey_Unknown extends LddKey {
   const LddKey_Unknown._() : super._();
 
   int get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LddKey
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddKey_UnknownImplCopyWith<_$LddKey_UnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$LddKeyboardValue {
+  Object get field0 => throw _privateConstructorUsedError;
+  BigInt get field1 => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String field0, BigInt field1) scanGunValue,
+    required TResult Function(LddEvent field0, BigInt field1) keyboardValue,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String field0, BigInt field1)? scanGunValue,
+    TResult? Function(LddEvent field0, BigInt field1)? keyboardValue,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String field0, BigInt field1)? scanGunValue,
+    TResult Function(LddEvent field0, BigInt field1)? keyboardValue,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LddKeyboardValue_ScanGunValue value) scanGunValue,
+    required TResult Function(LddKeyboardValue_KeyboardValue value)
+        keyboardValue,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult? Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $LddKeyboardValueCopyWith<LddKeyboardValue> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LddKeyboardValueCopyWith<$Res> {
+  factory $LddKeyboardValueCopyWith(
+          LddKeyboardValue value, $Res Function(LddKeyboardValue) then) =
+      _$LddKeyboardValueCopyWithImpl<$Res, LddKeyboardValue>;
+  @useResult
+  $Res call({BigInt field1});
+}
+
+/// @nodoc
+class _$LddKeyboardValueCopyWithImpl<$Res, $Val extends LddKeyboardValue>
+    implements $LddKeyboardValueCopyWith<$Res> {
+  _$LddKeyboardValueCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field1 = null,
+  }) {
+    return _then(_value.copyWith(
+      field1: null == field1
+          ? _value.field1
+          : field1 // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$LddKeyboardValue_ScanGunValueImplCopyWith<$Res>
+    implements $LddKeyboardValueCopyWith<$Res> {
+  factory _$$LddKeyboardValue_ScanGunValueImplCopyWith(
+          _$LddKeyboardValue_ScanGunValueImpl value,
+          $Res Function(_$LddKeyboardValue_ScanGunValueImpl) then) =
+      __$$LddKeyboardValue_ScanGunValueImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String field0, BigInt field1});
+}
+
+/// @nodoc
+class __$$LddKeyboardValue_ScanGunValueImplCopyWithImpl<$Res>
+    extends _$LddKeyboardValueCopyWithImpl<$Res,
+        _$LddKeyboardValue_ScanGunValueImpl>
+    implements _$$LddKeyboardValue_ScanGunValueImplCopyWith<$Res> {
+  __$$LddKeyboardValue_ScanGunValueImplCopyWithImpl(
+      _$LddKeyboardValue_ScanGunValueImpl _value,
+      $Res Function(_$LddKeyboardValue_ScanGunValueImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+    Object? field1 = null,
+  }) {
+    return _then(_$LddKeyboardValue_ScanGunValueImpl(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == field1
+          ? _value.field1
+          : field1 // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LddKeyboardValue_ScanGunValueImpl
+    extends LddKeyboardValue_ScanGunValue {
+  const _$LddKeyboardValue_ScanGunValueImpl(this.field0, this.field1)
+      : super._();
+
+  @override
+  final String field0;
+  @override
+  final BigInt field1;
+
+  @override
+  String toString() {
+    return 'LddKeyboardValue.scanGunValue(field0: $field0, field1: $field1)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LddKeyboardValue_ScanGunValueImpl &&
+            (identical(other.field0, field0) || other.field0 == field0) &&
+            (identical(other.field1, field1) || other.field1 == field1));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, field0, field1);
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LddKeyboardValue_ScanGunValueImplCopyWith<
+          _$LddKeyboardValue_ScanGunValueImpl>
+      get copyWith => __$$LddKeyboardValue_ScanGunValueImplCopyWithImpl<
+          _$LddKeyboardValue_ScanGunValueImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String field0, BigInt field1) scanGunValue,
+    required TResult Function(LddEvent field0, BigInt field1) keyboardValue,
+  }) {
+    return scanGunValue(field0, field1);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String field0, BigInt field1)? scanGunValue,
+    TResult? Function(LddEvent field0, BigInt field1)? keyboardValue,
+  }) {
+    return scanGunValue?.call(field0, field1);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String field0, BigInt field1)? scanGunValue,
+    TResult Function(LddEvent field0, BigInt field1)? keyboardValue,
+    required TResult orElse(),
+  }) {
+    if (scanGunValue != null) {
+      return scanGunValue(field0, field1);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LddKeyboardValue_ScanGunValue value) scanGunValue,
+    required TResult Function(LddKeyboardValue_KeyboardValue value)
+        keyboardValue,
+  }) {
+    return scanGunValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult? Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+  }) {
+    return scanGunValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    required TResult orElse(),
+  }) {
+    if (scanGunValue != null) {
+      return scanGunValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LddKeyboardValue_ScanGunValue extends LddKeyboardValue {
+  const factory LddKeyboardValue_ScanGunValue(
+          final String field0, final BigInt field1) =
+      _$LddKeyboardValue_ScanGunValueImpl;
+  const LddKeyboardValue_ScanGunValue._() : super._();
+
+  @override
+  String get field0;
+  @override
+  BigInt get field1;
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LddKeyboardValue_ScanGunValueImplCopyWith<
+          _$LddKeyboardValue_ScanGunValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LddKeyboardValue_KeyboardValueImplCopyWith<$Res>
+    implements $LddKeyboardValueCopyWith<$Res> {
+  factory _$$LddKeyboardValue_KeyboardValueImplCopyWith(
+          _$LddKeyboardValue_KeyboardValueImpl value,
+          $Res Function(_$LddKeyboardValue_KeyboardValueImpl) then) =
+      __$$LddKeyboardValue_KeyboardValueImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({LddEvent field0, BigInt field1});
+}
+
+/// @nodoc
+class __$$LddKeyboardValue_KeyboardValueImplCopyWithImpl<$Res>
+    extends _$LddKeyboardValueCopyWithImpl<$Res,
+        _$LddKeyboardValue_KeyboardValueImpl>
+    implements _$$LddKeyboardValue_KeyboardValueImplCopyWith<$Res> {
+  __$$LddKeyboardValue_KeyboardValueImplCopyWithImpl(
+      _$LddKeyboardValue_KeyboardValueImpl _value,
+      $Res Function(_$LddKeyboardValue_KeyboardValueImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+    Object? field1 = null,
+  }) {
+    return _then(_$LddKeyboardValue_KeyboardValueImpl(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as LddEvent,
+      null == field1
+          ? _value.field1
+          : field1 // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LddKeyboardValue_KeyboardValueImpl
+    extends LddKeyboardValue_KeyboardValue {
+  const _$LddKeyboardValue_KeyboardValueImpl(this.field0, this.field1)
+      : super._();
+
+  @override
+  final LddEvent field0;
+  @override
+  final BigInt field1;
+
+  @override
+  String toString() {
+    return 'LddKeyboardValue.keyboardValue(field0: $field0, field1: $field1)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LddKeyboardValue_KeyboardValueImpl &&
+            (identical(other.field0, field0) || other.field0 == field0) &&
+            (identical(other.field1, field1) || other.field1 == field1));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, field0, field1);
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LddKeyboardValue_KeyboardValueImplCopyWith<
+          _$LddKeyboardValue_KeyboardValueImpl>
+      get copyWith => __$$LddKeyboardValue_KeyboardValueImplCopyWithImpl<
+          _$LddKeyboardValue_KeyboardValueImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String field0, BigInt field1) scanGunValue,
+    required TResult Function(LddEvent field0, BigInt field1) keyboardValue,
+  }) {
+    return keyboardValue(field0, field1);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String field0, BigInt field1)? scanGunValue,
+    TResult? Function(LddEvent field0, BigInt field1)? keyboardValue,
+  }) {
+    return keyboardValue?.call(field0, field1);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String field0, BigInt field1)? scanGunValue,
+    TResult Function(LddEvent field0, BigInt field1)? keyboardValue,
+    required TResult orElse(),
+  }) {
+    if (keyboardValue != null) {
+      return keyboardValue(field0, field1);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LddKeyboardValue_ScanGunValue value) scanGunValue,
+    required TResult Function(LddKeyboardValue_KeyboardValue value)
+        keyboardValue,
+  }) {
+    return keyboardValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult? Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+  }) {
+    return keyboardValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    required TResult orElse(),
+  }) {
+    if (keyboardValue != null) {
+      return keyboardValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LddKeyboardValue_KeyboardValue extends LddKeyboardValue {
+  const factory LddKeyboardValue_KeyboardValue(
+          final LddEvent field0, final BigInt field1) =
+      _$LddKeyboardValue_KeyboardValueImpl;
+  const LddKeyboardValue_KeyboardValue._() : super._();
+
+  @override
+  LddEvent get field0;
+  @override
+  BigInt get field1;
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LddKeyboardValue_KeyboardValueImplCopyWith<
+          _$LddKeyboardValue_KeyboardValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

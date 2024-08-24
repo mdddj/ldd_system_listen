@@ -18,10 +18,28 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  StreamSubscription<LddKeyboardValue>? stream;
+
   @override
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 1), _startListen);
+  }
+
+  FutureOr _startListen() async {
+    stream = startListenSystenEventByLdd().listen(onScanCode);
+  }
+
+  void disponseListen() {
+    stream?.cancel();
+  }
+
+  void onScanCode(LddKeyboardValue event) {}
+
+  @override
+  void dispose() {
+    disponseListen();
+    super.dispose();
   }
 
   @override
@@ -38,13 +56,5 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
-  }
-
-  FutureOr _startListen() async {
-    startListenSystemEvent().listen(onData);
-  }
-
-  void onData(LddEvent event) {
-    print("name:${event.name} ${event.eventType}");
   }
 }
