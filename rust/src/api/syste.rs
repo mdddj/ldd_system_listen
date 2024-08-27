@@ -21,6 +21,8 @@ pub fn start_listen_system_event(sink: StreamSink<LddEvent>) -> Result<(), Strin
 pub enum LddKeyboardValue {
     ScanGunValue(String, u128),
     KeyboardValue(LddEvent, u128),
+    ScanGunValueV2(Vec<LddEvent>),
+    KeyboardValueV2(LddEvent),
 }
 
 /// [millis] 设置字符输入之间的最大时间间隔，小于此时间则认为是连续输入
@@ -39,8 +41,13 @@ pub fn start_listen_systen_event_by_ldd(
 
     let mut first_char: Option<char> = None;
     let mut is_gun = false;
+    let mut is_waiting = false; //是否正在等待处理中...如果等待处理中,直接不处理这次事件.
 
     if let Err(error) = listen(move |event| {
+        //等待判断上次输入事件
+        if !is_waiting {
+            return;
+        }
         let ldd_event: LddEvent = event.clone().into();
         let _ = callback(
             event,
@@ -49,6 +56,7 @@ pub fn start_listen_systen_event_by_ldd(
             &mut first_char,
             millis,
             min_size,
+            &mut is_waiting,
             &mut is_gun,
             |v, d| {
                 let mill = d.as_millis();
@@ -67,7 +75,6 @@ pub fn start_listen_systen_event_by_ldd(
         panic!("error:{:?}", error);
     }
 }
-
 async fn callback<F, K>(
     event: Event,
     last_event_time: &mut Instant,
@@ -75,6 +82,7 @@ async fn callback<F, K>(
     first_char: &mut Option<char>,
     millis: u64,
     min_size: usize,
+    is_waiting: &mut bool,
     is_gun: &mut bool,
     call: F,
     keyboard_call: K,
@@ -86,41 +94,40 @@ async fn callback<F, K>(
 
     if let EventType::KeyPress(key) = event.event_type {
         let now = Instant::now();
-        let duration = now.duration_since(*last_event_time);
+        let duration = now.duration_since(*last_event_time); //阈值
 
-        //间隔时间大于阈值,清空缓存,标注键盘输入
+        // 间隔时间大于阈值,清空缓存,标注键盘输入
         if duration >= threshold {
+            //键盘操作
             input_buffer.clear();
+            *is_gun = false;
+            *first_char = None;
         }
 
         *last_event_time = now;
 
         if let Some(key_char) = event.name.and_then(|name| name.chars().next()) {
+            // 如果输入间隔小于阈值，判断为扫码枪输入
             if duration < threshold {
-                *is_gun = true;
-                input_buffer.push(key_char);
-
-                if key == Key::Return {
-                    if let Some(f) = *first_char {
-                        input_buffer.insert(0, f);
-                    }
-                    let str = input_buffer.clone();
-                    if !str.is_empty() {
-                        call(str, duration);
-                    }
-                    input_buffer.clear();
-                    *first_char = None;
-                    *is_gun = false;
-                }
-            } else {
-                thread::sleep(Duration::from_millis(millis * 2));
-                if !*is_gun {
-                    keyboard_call(duration);
-
-                    input_buffer.clear();
-                } else {
+                if input_buffer.is_empty() {
                     *first_char = Some(key_char);
                 }
+                input_buffer.push(key_char);
+                *is_gun = true;
+            }
+
+            if key == Key::Return && *is_gun {
+                if !input_buffer.is_empty() {
+                    // 在这里处理扫码枪的输入
+                    call(input_buffer.clone(), duration);
+                }
+                input_buffer.clear();
+                *is_gun = false;
+                *first_char = None;
+            } else if !*is_gun {
+                // 处理键盘输入
+                keyboard_call(duration);
+                input_buffer.clear();
             }
         }
     }

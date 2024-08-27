@@ -3,6 +3,7 @@
 
 // ignore_for_file: unused_import, unused_element, unnecessary_import, duplicate_ignore, invalid_use_of_internal_member, annotate_overrides, non_constant_identifier_names, curly_braces_in_flow_control_structures, prefer_const_literals_to_create_immutables, unused_field
 
+import 'api/keyboard_listen.dart';
 import 'api/syste.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -69,6 +70,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   LddKeyboardValue dco_decode_ldd_keyboard_value(dynamic raw);
+
+  @protected
+  List<LddEvent> dco_decode_list_ldd_event(dynamic raw);
 
   @protected
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
@@ -149,6 +153,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   LddKeyboardValue sse_decode_ldd_keyboard_value(SseDeserializer deserializer);
+
+  @protected
+  List<LddEvent> sse_decode_list_ldd_event(SseDeserializer deserializer);
 
   @protected
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
@@ -239,6 +246,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_ldd_keyboard_value(
       LddKeyboardValue self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list_ldd_event(List<LddEvent> self, SseSerializer serializer);
 
   @protected
   void sse_encode_list_prim_u_8_strict(

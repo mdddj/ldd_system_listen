@@ -206,4 +206,10 @@ sealed class LddKeyboardValue with _$LddKeyboardValue {
     LddEvent field0,
     BigInt field1,
   ) = LddKeyboardValue_KeyboardValue;
+  const factory LddKeyboardValue.scanGunValueV2(
+    List<LddEvent> field0,
+  ) = LddKeyboardValue_ScanGunValueV2;
+  const factory LddKeyboardValue.keyboardValueV2(
+    LddEvent field0,
+  ) = LddKeyboardValue_KeyboardValueV2;
 }

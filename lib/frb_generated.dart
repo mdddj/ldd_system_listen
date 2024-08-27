@@ -3,6 +3,7 @@
 
 // ignore_for_file: unused_import, unused_element, unnecessary_import, duplicate_ignore, invalid_use_of_internal_member, annotate_overrides, non_constant_identifier_names, curly_braces_in_flow_control_structures, prefer_const_literals_to_create_immutables, unused_field
 
+import 'api/keyboard_listen.dart';
 import 'api/syste.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -66,7 +67,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   String get codegenVersion => '2.3.0';
 
   @override
-  int get rustContentHash => -1921747442;
+  int get rustContentHash => -2110124214;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -77,6 +78,8 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
 }
 
 abstract class RustLibApi extends BaseApi {
+  Stream<LddKeyboardValue> crateApiKeyboardListenStartListen();
+
   Stream<LddEvent> crateApiSysteStartListenSystemEvent();
 
   Stream<LddKeyboardValue> crateApiSysteStartListenSystenEventByLdd(
@@ -92,6 +95,33 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   });
 
   @override
+  Stream<LddKeyboardValue> crateApiKeyboardListenStartListen() {
+    final sink = RustStreamSink<LddKeyboardValue>();
+    unawaited(handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        sse_encode_StreamSink_ldd_keyboard_value_Sse(sink, serializer);
+        pdeCallFfi(generalizedFrbRustBinding, serializer,
+            funcId: 1, port: port_);
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_unit,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiKeyboardListenStartListenConstMeta,
+      argValues: [sink],
+      apiImpl: this,
+    )));
+    return sink.stream;
+  }
+
+  TaskConstMeta get kCrateApiKeyboardListenStartListenConstMeta =>
+      const TaskConstMeta(
+        debugName: "start_listen",
+        argNames: ["sink"],
+      );
+
+  @override
   Stream<LddEvent> crateApiSysteStartListenSystemEvent() {
     final sink = RustStreamSink<LddEvent>();
     unawaited(handler.executeNormal(NormalTask(
@@ -99,7 +129,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         final serializer = SseSerializer(generalizedFrbRustBinding);
         sse_encode_StreamSink_ldd_event_Sse(sink, serializer);
         pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 1, port: port_);
+            funcId: 2, port: port_);
       },
       codec: SseCodec(
         decodeSuccessData: sse_decode_unit,
@@ -129,7 +159,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         sse_encode_opt_box_autoadd_u_64(millis, serializer);
         sse_encode_opt_box_autoadd_usize(minSize, serializer);
         pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 2, port: port_);
+            funcId: 3, port: port_);
       },
       codec: SseCodec(
         decodeSuccessData: sse_decode_unit,
@@ -524,9 +554,23 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           dco_decode_box_autoadd_ldd_event(raw[1]),
           dco_decode_U128(raw[2]),
         );
+      case 2:
+        return LddKeyboardValue_ScanGunValueV2(
+          dco_decode_list_ldd_event(raw[1]),
+        );
+      case 3:
+        return LddKeyboardValue_KeyboardValueV2(
+          dco_decode_box_autoadd_ldd_event(raw[1]),
+        );
       default:
         throw Exception("unreachable");
     }
+  }
+
+  @protected
+  List<LddEvent> dco_decode_list_ldd_event(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>).map(dco_decode_ldd_event).toList();
   }
 
   @protected
@@ -957,9 +1001,27 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         var var_field0 = sse_decode_box_autoadd_ldd_event(deserializer);
         var var_field1 = sse_decode_U128(deserializer);
         return LddKeyboardValue_KeyboardValue(var_field0, var_field1);
+      case 2:
+        var var_field0 = sse_decode_list_ldd_event(deserializer);
+        return LddKeyboardValue_ScanGunValueV2(var_field0);
+      case 3:
+        var var_field0 = sse_decode_box_autoadd_ldd_event(deserializer);
+        return LddKeyboardValue_KeyboardValueV2(var_field0);
       default:
         throw UnimplementedError('');
     }
+  }
+
+  @protected
+  List<LddEvent> sse_decode_list_ldd_event(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <LddEvent>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(sse_decode_ldd_event(deserializer));
+    }
+    return ans_;
   }
 
   @protected
@@ -1427,8 +1489,24 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         sse_encode_i_32(1, serializer);
         sse_encode_box_autoadd_ldd_event(field0, serializer);
         sse_encode_U128(field1, serializer);
+      case LddKeyboardValue_ScanGunValueV2(field0: final field0):
+        sse_encode_i_32(2, serializer);
+        sse_encode_list_ldd_event(field0, serializer);
+      case LddKeyboardValue_KeyboardValueV2(field0: final field0):
+        sse_encode_i_32(3, serializer);
+        sse_encode_box_autoadd_ldd_event(field0, serializer);
       default:
         throw UnimplementedError('');
+    }
+  }
+
+  @protected
+  void sse_encode_list_ldd_event(
+      List<LddEvent> self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_ldd_event(item, serializer);
     }
   }
 

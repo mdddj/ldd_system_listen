@@ -79872,23 +79872,28 @@ abstract class LddKey_Unknown extends LddKey {
 /// @nodoc
 mixin _$LddKeyboardValue {
   Object get field0 => throw _privateConstructorUsedError;
-  BigInt get field1 => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String field0, BigInt field1) scanGunValue,
     required TResult Function(LddEvent field0, BigInt field1) keyboardValue,
+    required TResult Function(List<LddEvent> field0) scanGunValueV2,
+    required TResult Function(LddEvent field0) keyboardValueV2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String field0, BigInt field1)? scanGunValue,
     TResult? Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult? Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult? Function(LddEvent field0)? keyboardValueV2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String field0, BigInt field1)? scanGunValue,
     TResult Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult Function(LddEvent field0)? keyboardValueV2,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79897,26 +79902,28 @@ mixin _$LddKeyboardValue {
     required TResult Function(LddKeyboardValue_ScanGunValue value) scanGunValue,
     required TResult Function(LddKeyboardValue_KeyboardValue value)
         keyboardValue,
+    required TResult Function(LddKeyboardValue_ScanGunValueV2 value)
+        scanGunValueV2,
+    required TResult Function(LddKeyboardValue_KeyboardValueV2 value)
+        keyboardValueV2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
     TResult? Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult? Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult? Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
     TResult Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of LddKeyboardValue
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LddKeyboardValueCopyWith<LddKeyboardValue> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -79925,8 +79932,6 @@ abstract class $LddKeyboardValueCopyWith<$Res> {
   factory $LddKeyboardValueCopyWith(
           LddKeyboardValue value, $Res Function(LddKeyboardValue) then) =
       _$LddKeyboardValueCopyWithImpl<$Res, LddKeyboardValue>;
-  @useResult
-  $Res call({BigInt field1});
 }
 
 /// @nodoc
@@ -79941,28 +79946,14 @@ class _$LddKeyboardValueCopyWithImpl<$Res, $Val extends LddKeyboardValue>
 
   /// Create a copy of LddKeyboardValue
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? field1 = null,
-  }) {
-    return _then(_value.copyWith(
-      field1: null == field1
-          ? _value.field1
-          : field1 // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$LddKeyboardValue_ScanGunValueImplCopyWith<$Res>
-    implements $LddKeyboardValueCopyWith<$Res> {
+abstract class _$$LddKeyboardValue_ScanGunValueImplCopyWith<$Res> {
   factory _$$LddKeyboardValue_ScanGunValueImplCopyWith(
           _$LddKeyboardValue_ScanGunValueImpl value,
           $Res Function(_$LddKeyboardValue_ScanGunValueImpl) then) =
       __$$LddKeyboardValue_ScanGunValueImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String field0, BigInt field1});
 }
@@ -80042,6 +80033,8 @@ class _$LddKeyboardValue_ScanGunValueImpl
   TResult when<TResult extends Object?>({
     required TResult Function(String field0, BigInt field1) scanGunValue,
     required TResult Function(LddEvent field0, BigInt field1) keyboardValue,
+    required TResult Function(List<LddEvent> field0) scanGunValueV2,
+    required TResult Function(LddEvent field0) keyboardValueV2,
   }) {
     return scanGunValue(field0, field1);
   }
@@ -80051,6 +80044,8 @@ class _$LddKeyboardValue_ScanGunValueImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String field0, BigInt field1)? scanGunValue,
     TResult? Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult? Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult? Function(LddEvent field0)? keyboardValueV2,
   }) {
     return scanGunValue?.call(field0, field1);
   }
@@ -80060,6 +80055,8 @@ class _$LddKeyboardValue_ScanGunValueImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String field0, BigInt field1)? scanGunValue,
     TResult Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult Function(LddEvent field0)? keyboardValueV2,
     required TResult orElse(),
   }) {
     if (scanGunValue != null) {
@@ -80074,6 +80071,10 @@ class _$LddKeyboardValue_ScanGunValueImpl
     required TResult Function(LddKeyboardValue_ScanGunValue value) scanGunValue,
     required TResult Function(LddKeyboardValue_KeyboardValue value)
         keyboardValue,
+    required TResult Function(LddKeyboardValue_ScanGunValueV2 value)
+        scanGunValueV2,
+    required TResult Function(LddKeyboardValue_KeyboardValueV2 value)
+        keyboardValueV2,
   }) {
     return scanGunValue(this);
   }
@@ -80083,6 +80084,8 @@ class _$LddKeyboardValue_ScanGunValueImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
     TResult? Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult? Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult? Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
   }) {
     return scanGunValue?.call(this);
   }
@@ -80092,6 +80095,8 @@ class _$LddKeyboardValue_ScanGunValueImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
     TResult Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
     required TResult orElse(),
   }) {
     if (scanGunValue != null) {
@@ -80109,12 +80114,10 @@ abstract class LddKeyboardValue_ScanGunValue extends LddKeyboardValue {
 
   @override
   String get field0;
-  @override
   BigInt get field1;
 
   /// Create a copy of LddKeyboardValue
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddKeyboardValue_ScanGunValueImplCopyWith<
           _$LddKeyboardValue_ScanGunValueImpl>
@@ -80122,13 +80125,11 @@ abstract class LddKeyboardValue_ScanGunValue extends LddKeyboardValue {
 }
 
 /// @nodoc
-abstract class _$$LddKeyboardValue_KeyboardValueImplCopyWith<$Res>
-    implements $LddKeyboardValueCopyWith<$Res> {
+abstract class _$$LddKeyboardValue_KeyboardValueImplCopyWith<$Res> {
   factory _$$LddKeyboardValue_KeyboardValueImplCopyWith(
           _$LddKeyboardValue_KeyboardValueImpl value,
           $Res Function(_$LddKeyboardValue_KeyboardValueImpl) then) =
       __$$LddKeyboardValue_KeyboardValueImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({LddEvent field0, BigInt field1});
 }
@@ -80208,6 +80209,8 @@ class _$LddKeyboardValue_KeyboardValueImpl
   TResult when<TResult extends Object?>({
     required TResult Function(String field0, BigInt field1) scanGunValue,
     required TResult Function(LddEvent field0, BigInt field1) keyboardValue,
+    required TResult Function(List<LddEvent> field0) scanGunValueV2,
+    required TResult Function(LddEvent field0) keyboardValueV2,
   }) {
     return keyboardValue(field0, field1);
   }
@@ -80217,6 +80220,8 @@ class _$LddKeyboardValue_KeyboardValueImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String field0, BigInt field1)? scanGunValue,
     TResult? Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult? Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult? Function(LddEvent field0)? keyboardValueV2,
   }) {
     return keyboardValue?.call(field0, field1);
   }
@@ -80226,6 +80231,8 @@ class _$LddKeyboardValue_KeyboardValueImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String field0, BigInt field1)? scanGunValue,
     TResult Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult Function(LddEvent field0)? keyboardValueV2,
     required TResult orElse(),
   }) {
     if (keyboardValue != null) {
@@ -80240,6 +80247,10 @@ class _$LddKeyboardValue_KeyboardValueImpl
     required TResult Function(LddKeyboardValue_ScanGunValue value) scanGunValue,
     required TResult Function(LddKeyboardValue_KeyboardValue value)
         keyboardValue,
+    required TResult Function(LddKeyboardValue_ScanGunValueV2 value)
+        scanGunValueV2,
+    required TResult Function(LddKeyboardValue_KeyboardValueV2 value)
+        keyboardValueV2,
   }) {
     return keyboardValue(this);
   }
@@ -80249,6 +80260,8 @@ class _$LddKeyboardValue_KeyboardValueImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
     TResult? Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult? Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult? Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
   }) {
     return keyboardValue?.call(this);
   }
@@ -80258,6 +80271,8 @@ class _$LddKeyboardValue_KeyboardValueImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
     TResult Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
     required TResult orElse(),
   }) {
     if (keyboardValue != null) {
@@ -80275,14 +80290,350 @@ abstract class LddKeyboardValue_KeyboardValue extends LddKeyboardValue {
 
   @override
   LddEvent get field0;
-  @override
   BigInt get field1;
 
   /// Create a copy of LddKeyboardValue
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LddKeyboardValue_KeyboardValueImplCopyWith<
           _$LddKeyboardValue_KeyboardValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LddKeyboardValue_ScanGunValueV2ImplCopyWith<$Res> {
+  factory _$$LddKeyboardValue_ScanGunValueV2ImplCopyWith(
+          _$LddKeyboardValue_ScanGunValueV2Impl value,
+          $Res Function(_$LddKeyboardValue_ScanGunValueV2Impl) then) =
+      __$$LddKeyboardValue_ScanGunValueV2ImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<LddEvent> field0});
+}
+
+/// @nodoc
+class __$$LddKeyboardValue_ScanGunValueV2ImplCopyWithImpl<$Res>
+    extends _$LddKeyboardValueCopyWithImpl<$Res,
+        _$LddKeyboardValue_ScanGunValueV2Impl>
+    implements _$$LddKeyboardValue_ScanGunValueV2ImplCopyWith<$Res> {
+  __$$LddKeyboardValue_ScanGunValueV2ImplCopyWithImpl(
+      _$LddKeyboardValue_ScanGunValueV2Impl _value,
+      $Res Function(_$LddKeyboardValue_ScanGunValueV2Impl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+  }) {
+    return _then(_$LddKeyboardValue_ScanGunValueV2Impl(
+      null == field0
+          ? _value._field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as List<LddEvent>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LddKeyboardValue_ScanGunValueV2Impl
+    extends LddKeyboardValue_ScanGunValueV2 {
+  const _$LddKeyboardValue_ScanGunValueV2Impl(final List<LddEvent> field0)
+      : _field0 = field0,
+        super._();
+
+  final List<LddEvent> _field0;
+  @override
+  List<LddEvent> get field0 {
+    if (_field0 is EqualUnmodifiableListView) return _field0;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_field0);
+  }
+
+  @override
+  String toString() {
+    return 'LddKeyboardValue.scanGunValueV2(field0: $field0)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LddKeyboardValue_ScanGunValueV2Impl &&
+            const DeepCollectionEquality().equals(other._field0, _field0));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_field0));
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LddKeyboardValue_ScanGunValueV2ImplCopyWith<
+          _$LddKeyboardValue_ScanGunValueV2Impl>
+      get copyWith => __$$LddKeyboardValue_ScanGunValueV2ImplCopyWithImpl<
+          _$LddKeyboardValue_ScanGunValueV2Impl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String field0, BigInt field1) scanGunValue,
+    required TResult Function(LddEvent field0, BigInt field1) keyboardValue,
+    required TResult Function(List<LddEvent> field0) scanGunValueV2,
+    required TResult Function(LddEvent field0) keyboardValueV2,
+  }) {
+    return scanGunValueV2(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String field0, BigInt field1)? scanGunValue,
+    TResult? Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult? Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult? Function(LddEvent field0)? keyboardValueV2,
+  }) {
+    return scanGunValueV2?.call(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String field0, BigInt field1)? scanGunValue,
+    TResult Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult Function(LddEvent field0)? keyboardValueV2,
+    required TResult orElse(),
+  }) {
+    if (scanGunValueV2 != null) {
+      return scanGunValueV2(field0);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LddKeyboardValue_ScanGunValue value) scanGunValue,
+    required TResult Function(LddKeyboardValue_KeyboardValue value)
+        keyboardValue,
+    required TResult Function(LddKeyboardValue_ScanGunValueV2 value)
+        scanGunValueV2,
+    required TResult Function(LddKeyboardValue_KeyboardValueV2 value)
+        keyboardValueV2,
+  }) {
+    return scanGunValueV2(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult? Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult? Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult? Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
+  }) {
+    return scanGunValueV2?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
+    required TResult orElse(),
+  }) {
+    if (scanGunValueV2 != null) {
+      return scanGunValueV2(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LddKeyboardValue_ScanGunValueV2 extends LddKeyboardValue {
+  const factory LddKeyboardValue_ScanGunValueV2(final List<LddEvent> field0) =
+      _$LddKeyboardValue_ScanGunValueV2Impl;
+  const LddKeyboardValue_ScanGunValueV2._() : super._();
+
+  @override
+  List<LddEvent> get field0;
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LddKeyboardValue_ScanGunValueV2ImplCopyWith<
+          _$LddKeyboardValue_ScanGunValueV2Impl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LddKeyboardValue_KeyboardValueV2ImplCopyWith<$Res> {
+  factory _$$LddKeyboardValue_KeyboardValueV2ImplCopyWith(
+          _$LddKeyboardValue_KeyboardValueV2Impl value,
+          $Res Function(_$LddKeyboardValue_KeyboardValueV2Impl) then) =
+      __$$LddKeyboardValue_KeyboardValueV2ImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({LddEvent field0});
+}
+
+/// @nodoc
+class __$$LddKeyboardValue_KeyboardValueV2ImplCopyWithImpl<$Res>
+    extends _$LddKeyboardValueCopyWithImpl<$Res,
+        _$LddKeyboardValue_KeyboardValueV2Impl>
+    implements _$$LddKeyboardValue_KeyboardValueV2ImplCopyWith<$Res> {
+  __$$LddKeyboardValue_KeyboardValueV2ImplCopyWithImpl(
+      _$LddKeyboardValue_KeyboardValueV2Impl _value,
+      $Res Function(_$LddKeyboardValue_KeyboardValueV2Impl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+  }) {
+    return _then(_$LddKeyboardValue_KeyboardValueV2Impl(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as LddEvent,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LddKeyboardValue_KeyboardValueV2Impl
+    extends LddKeyboardValue_KeyboardValueV2 {
+  const _$LddKeyboardValue_KeyboardValueV2Impl(this.field0) : super._();
+
+  @override
+  final LddEvent field0;
+
+  @override
+  String toString() {
+    return 'LddKeyboardValue.keyboardValueV2(field0: $field0)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LddKeyboardValue_KeyboardValueV2Impl &&
+            (identical(other.field0, field0) || other.field0 == field0));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, field0);
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LddKeyboardValue_KeyboardValueV2ImplCopyWith<
+          _$LddKeyboardValue_KeyboardValueV2Impl>
+      get copyWith => __$$LddKeyboardValue_KeyboardValueV2ImplCopyWithImpl<
+          _$LddKeyboardValue_KeyboardValueV2Impl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String field0, BigInt field1) scanGunValue,
+    required TResult Function(LddEvent field0, BigInt field1) keyboardValue,
+    required TResult Function(List<LddEvent> field0) scanGunValueV2,
+    required TResult Function(LddEvent field0) keyboardValueV2,
+  }) {
+    return keyboardValueV2(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String field0, BigInt field1)? scanGunValue,
+    TResult? Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult? Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult? Function(LddEvent field0)? keyboardValueV2,
+  }) {
+    return keyboardValueV2?.call(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String field0, BigInt field1)? scanGunValue,
+    TResult Function(LddEvent field0, BigInt field1)? keyboardValue,
+    TResult Function(List<LddEvent> field0)? scanGunValueV2,
+    TResult Function(LddEvent field0)? keyboardValueV2,
+    required TResult orElse(),
+  }) {
+    if (keyboardValueV2 != null) {
+      return keyboardValueV2(field0);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LddKeyboardValue_ScanGunValue value) scanGunValue,
+    required TResult Function(LddKeyboardValue_KeyboardValue value)
+        keyboardValue,
+    required TResult Function(LddKeyboardValue_ScanGunValueV2 value)
+        scanGunValueV2,
+    required TResult Function(LddKeyboardValue_KeyboardValueV2 value)
+        keyboardValueV2,
+  }) {
+    return keyboardValueV2(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult? Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult? Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult? Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
+  }) {
+    return keyboardValueV2?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LddKeyboardValue_ScanGunValue value)? scanGunValue,
+    TResult Function(LddKeyboardValue_KeyboardValue value)? keyboardValue,
+    TResult Function(LddKeyboardValue_ScanGunValueV2 value)? scanGunValueV2,
+    TResult Function(LddKeyboardValue_KeyboardValueV2 value)? keyboardValueV2,
+    required TResult orElse(),
+  }) {
+    if (keyboardValueV2 != null) {
+      return keyboardValueV2(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LddKeyboardValue_KeyboardValueV2 extends LddKeyboardValue {
+  const factory LddKeyboardValue_KeyboardValueV2(final LddEvent field0) =
+      _$LddKeyboardValue_KeyboardValueV2Impl;
+  const LddKeyboardValue_KeyboardValueV2._() : super._();
+
+  @override
+  LddEvent get field0;
+
+  /// Create a copy of LddKeyboardValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LddKeyboardValue_KeyboardValueV2ImplCopyWith<
+          _$LddKeyboardValue_KeyboardValueV2Impl>
       get copyWith => throw _privateConstructorUsedError;
 }

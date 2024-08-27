@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:ldd_system_listen/api/keyboard_listen.dart';
 import 'package:ldd_system_listen/api/syste.dart';
 
 import 'package:ldd_system_listen/ldd_system_listen.dart';
@@ -26,15 +27,24 @@ class _MyAppState extends State<MyApp> {
     Future.delayed(const Duration(seconds: 1), _startListen);
   }
 
-  FutureOr _startListen() async {
-    stream = startListenSystenEventByLdd().listen(onScanCode);
-  }
-
   void disponseListen() {
     stream?.cancel();
   }
 
-  void onScanCode(LddKeyboardValue event) {}
+  FutureOr _startListen() async {
+    stream = startListen().listen(onScanCode);
+  }
+
+  void onScanCode(LddKeyboardValue event) {
+    event.whenOrNull(
+      keyboardValueV2: (field0) {
+        debugPrint("键盘:${field0.name}");
+      },
+      scanGunValueV2: (field0) {
+        debugPrint("扫描枪${field0.map((e) => e.name)}");
+      },
+    );
+  }
 
   @override
   void dispose() {
