@@ -3,7 +3,10 @@
 
 // ignore_for_file: unused_import, unused_element, unnecessary_import, duplicate_ignore, invalid_use_of_internal_member, annotate_overrides, non_constant_identifier_names, curly_braces_in_flow_control_structures, prefer_const_literals_to_create_immutables, unused_field
 
+import 'api/entitys.dart';
 import 'api/keyboard_listen.dart';
+import 'api/logger.dart';
+import 'api/multiinput.dart';
 import 'api/syste.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -67,7 +70,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   String get codegenVersion => '2.3.0';
 
   @override
-  int get rustContentHash => -2110124214;
+  int get rustContentHash => -1267495477;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -78,12 +81,50 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
 }
 
 abstract class RustLibApi extends BaseApi {
+  String crateApiEntitysLddKeyIdKeyIdToString({required LddKeyId that});
+
+  String crateApiEntitysLddStateFormatString({required LddState that});
+
   Stream<LddKeyboardValue> crateApiKeyboardListenStartListen();
+
+  Stream<LogEntry> crateApiLoggerCreateLogStream();
+
+  Future<void> crateApiLoggerInitLogger();
+
+  Future<MyMobileLogger> crateApiLoggerMyMobileLoggerNew();
+
+  Future<void> crateApiLoggerRustSetUp();
+
+  Future<SendToDartLogger> crateApiLoggerSendToDartLoggerNew();
+
+  Stream<LogEntry> crateApiLoggerSendToDartLoggerSetStreamSink();
+
+  List<LddKeyboard> crateApiMultiinputLddKeyboardManagerGetLddKeyboardList(
+      {required LddKeyboardManager that});
+
+  Stream<LddRawEvent>
+      crateApiMultiinputLddKeyboardManagerListenLddKeyboardEvent(
+          {required LddKeyboardManager that, LddKeyboard? gunDevice});
+
+  LddKeyboardManager crateApiMultiinputLddKeyboardManagerNew(
+      {bool? printDebug, bool? gunAddEndReturnKey});
+
+  void crateApiMultiinputLddKeyboardManagerRegister(
+      {required LddKeyboardManager that});
 
   Stream<LddEvent> crateApiSysteStartListenSystemEvent();
 
   Stream<LddKeyboardValue> crateApiSysteStartListenSystenEventByLdd(
       {BigInt? millis, BigInt? minSize});
+
+  RustArcIncrementStrongCountFnType
+      get rust_arc_increment_strong_count_LddKeyboardManager;
+
+  RustArcDecrementStrongCountFnType
+      get rust_arc_decrement_strong_count_LddKeyboardManager;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_LddKeyboardManagerPtr;
 }
 
 class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
@@ -95,6 +136,54 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   });
 
   @override
+  String crateApiEntitysLddKeyIdKeyIdToString({required LddKeyId that}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        sse_encode_ldd_key_id(that, serializer);
+        return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 1)!;
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_String,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiEntitysLddKeyIdKeyIdToStringConstMeta,
+      argValues: [that],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiEntitysLddKeyIdKeyIdToStringConstMeta =>
+      const TaskConstMeta(
+        debugName: "ldd_key_id_key_id_to_string",
+        argNames: ["that"],
+      );
+
+  @override
+  String crateApiEntitysLddStateFormatString({required LddState that}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        sse_encode_ldd_state(that, serializer);
+        return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 2)!;
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_String,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiEntitysLddStateFormatStringConstMeta,
+      argValues: [that],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiEntitysLddStateFormatStringConstMeta =>
+      const TaskConstMeta(
+        debugName: "ldd_state_format_string",
+        argNames: ["that"],
+      );
+
+  @override
   Stream<LddKeyboardValue> crateApiKeyboardListenStartListen() {
     final sink = RustStreamSink<LddKeyboardValue>();
     unawaited(handler.executeNormal(NormalTask(
@@ -102,7 +191,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         final serializer = SseSerializer(generalizedFrbRustBinding);
         sse_encode_StreamSink_ldd_keyboard_value_Sse(sink, serializer);
         pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 1, port: port_);
+            funcId: 3, port: port_);
       },
       codec: SseCodec(
         decodeSuccessData: sse_decode_unit,
@@ -122,6 +211,269 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Stream<LogEntry> crateApiLoggerCreateLogStream() {
+    final s = RustStreamSink<LogEntry>();
+    unawaited(handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        sse_encode_StreamSink_log_entry_Sse(s, serializer);
+        pdeCallFfi(generalizedFrbRustBinding, serializer,
+            funcId: 4, port: port_);
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_unit,
+        decodeErrorData: sse_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiLoggerCreateLogStreamConstMeta,
+      argValues: [s],
+      apiImpl: this,
+    )));
+    return s.stream;
+  }
+
+  TaskConstMeta get kCrateApiLoggerCreateLogStreamConstMeta =>
+      const TaskConstMeta(
+        debugName: "create_log_stream",
+        argNames: ["s"],
+      );
+
+  @override
+  Future<void> crateApiLoggerInitLogger() {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        pdeCallFfi(generalizedFrbRustBinding, serializer,
+            funcId: 5, port: port_);
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_unit,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiLoggerInitLoggerConstMeta,
+      argValues: [],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiLoggerInitLoggerConstMeta => const TaskConstMeta(
+        debugName: "init_logger",
+        argNames: [],
+      );
+
+  @override
+  Future<MyMobileLogger> crateApiLoggerMyMobileLoggerNew() {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        pdeCallFfi(generalizedFrbRustBinding, serializer,
+            funcId: 6, port: port_);
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_my_mobile_logger,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiLoggerMyMobileLoggerNewConstMeta,
+      argValues: [],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiLoggerMyMobileLoggerNewConstMeta =>
+      const TaskConstMeta(
+        debugName: "my_mobile_logger_new",
+        argNames: [],
+      );
+
+  @override
+  Future<void> crateApiLoggerRustSetUp() {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        pdeCallFfi(generalizedFrbRustBinding, serializer,
+            funcId: 7, port: port_);
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_unit,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiLoggerRustSetUpConstMeta,
+      argValues: [],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiLoggerRustSetUpConstMeta => const TaskConstMeta(
+        debugName: "rust_set_up",
+        argNames: [],
+      );
+
+  @override
+  Future<SendToDartLogger> crateApiLoggerSendToDartLoggerNew() {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        pdeCallFfi(generalizedFrbRustBinding, serializer,
+            funcId: 8, port: port_);
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_send_to_dart_logger,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiLoggerSendToDartLoggerNewConstMeta,
+      argValues: [],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiLoggerSendToDartLoggerNewConstMeta =>
+      const TaskConstMeta(
+        debugName: "send_to_dart_logger_new",
+        argNames: [],
+      );
+
+  @override
+  Stream<LogEntry> crateApiLoggerSendToDartLoggerSetStreamSink() {
+    final streamSink = RustStreamSink<LogEntry>();
+    unawaited(handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        sse_encode_StreamSink_log_entry_Sse(streamSink, serializer);
+        pdeCallFfi(generalizedFrbRustBinding, serializer,
+            funcId: 9, port: port_);
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_unit,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiLoggerSendToDartLoggerSetStreamSinkConstMeta,
+      argValues: [streamSink],
+      apiImpl: this,
+    )));
+    return streamSink.stream;
+  }
+
+  TaskConstMeta get kCrateApiLoggerSendToDartLoggerSetStreamSinkConstMeta =>
+      const TaskConstMeta(
+        debugName: "send_to_dart_logger_set_stream_sink",
+        argNames: ["streamSink"],
+      );
+
+  @override
+  List<LddKeyboard> crateApiMultiinputLddKeyboardManagerGetLddKeyboardList(
+      {required LddKeyboardManager that}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+            that, serializer);
+        return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 10)!;
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_list_ldd_keyboard,
+        decodeErrorData: null,
+      ),
+      constMeta:
+          kCrateApiMultiinputLddKeyboardManagerGetLddKeyboardListConstMeta,
+      argValues: [that],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta
+      get kCrateApiMultiinputLddKeyboardManagerGetLddKeyboardListConstMeta =>
+          const TaskConstMeta(
+            debugName: "LddKeyboardManager_get_ldd_keyboard_list",
+            argNames: ["that"],
+          );
+
+  @override
+  Stream<LddRawEvent>
+      crateApiMultiinputLddKeyboardManagerListenLddKeyboardEvent(
+          {required LddKeyboardManager that, LddKeyboard? gunDevice}) {
+    final sink = RustStreamSink<LddRawEvent>();
+    unawaited(handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+            that, serializer);
+        sse_encode_opt_box_autoadd_ldd_keyboard(gunDevice, serializer);
+        sse_encode_StreamSink_ldd_raw_event_Sse(sink, serializer);
+        pdeCallFfi(generalizedFrbRustBinding, serializer,
+            funcId: 11, port: port_);
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_unit,
+        decodeErrorData: null,
+      ),
+      constMeta:
+          kCrateApiMultiinputLddKeyboardManagerListenLddKeyboardEventConstMeta,
+      argValues: [that, gunDevice, sink],
+      apiImpl: this,
+    )));
+    return sink.stream;
+  }
+
+  TaskConstMeta
+      get kCrateApiMultiinputLddKeyboardManagerListenLddKeyboardEventConstMeta =>
+          const TaskConstMeta(
+            debugName: "LddKeyboardManager_listen_ldd_keyboard_event",
+            argNames: ["that", "gunDevice", "sink"],
+          );
+
+  @override
+  LddKeyboardManager crateApiMultiinputLddKeyboardManagerNew(
+      {bool? printDebug, bool? gunAddEndReturnKey}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        sse_encode_opt_box_autoadd_bool(printDebug, serializer);
+        sse_encode_opt_box_autoadd_bool(gunAddEndReturnKey, serializer);
+        return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 12)!;
+      },
+      codec: SseCodec(
+        decodeSuccessData:
+            sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiMultiinputLddKeyboardManagerNewConstMeta,
+      argValues: [printDebug, gunAddEndReturnKey],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMultiinputLddKeyboardManagerNewConstMeta =>
+      const TaskConstMeta(
+        debugName: "LddKeyboardManager_new",
+        argNames: ["printDebug", "gunAddEndReturnKey"],
+      );
+
+  @override
+  void crateApiMultiinputLddKeyboardManagerRegister(
+      {required LddKeyboardManager that}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
+        final serializer = SseSerializer(generalizedFrbRustBinding);
+        sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+            that, serializer);
+        return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 13)!;
+      },
+      codec: SseCodec(
+        decodeSuccessData: sse_decode_unit,
+        decodeErrorData: null,
+      ),
+      constMeta: kCrateApiMultiinputLddKeyboardManagerRegisterConstMeta,
+      argValues: [that],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMultiinputLddKeyboardManagerRegisterConstMeta =>
+      const TaskConstMeta(
+        debugName: "LddKeyboardManager_register",
+        argNames: ["that"],
+      );
+
+  @override
   Stream<LddEvent> crateApiSysteStartListenSystemEvent() {
     final sink = RustStreamSink<LddEvent>();
     unawaited(handler.executeNormal(NormalTask(
@@ -129,7 +481,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         final serializer = SseSerializer(generalizedFrbRustBinding);
         sse_encode_StreamSink_ldd_event_Sse(sink, serializer);
         pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 2, port: port_);
+            funcId: 14, port: port_);
       },
       codec: SseCodec(
         decodeSuccessData: sse_decode_unit,
@@ -159,7 +511,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         sse_encode_opt_box_autoadd_u_64(millis, serializer);
         sse_encode_opt_box_autoadd_usize(minSize, serializer);
         pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 3, port: port_);
+            funcId: 15, port: port_);
       },
       codec: SseCodec(
         decodeSuccessData: sse_decode_unit,
@@ -178,10 +530,42 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         argNames: ["sink", "millis", "minSize"],
       );
 
+  RustArcIncrementStrongCountFnType
+      get rust_arc_increment_strong_count_LddKeyboardManager => wire
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager;
+
+  RustArcDecrementStrongCountFnType
+      get rust_arc_decrement_strong_count_LddKeyboardManager => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager;
+
   @protected
   AnyhowException dco_decode_AnyhowException(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return AnyhowException(raw as String);
+  }
+
+  @protected
+  LddKeyboardManager
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return LddKeyboardManagerImpl.frbInternalDcoDecode(raw as List<dynamic>);
+  }
+
+  @protected
+  LddKeyboardManager
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return LddKeyboardManagerImpl.frbInternalDcoDecode(raw as List<dynamic>);
+  }
+
+  @protected
+  LddKeyboardManager
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return LddKeyboardManagerImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
@@ -198,6 +582,19 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  RustStreamSink<LddRawEvent> dco_decode_StreamSink_ldd_raw_event_Sse(
+      dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    throw UnimplementedError();
+  }
+
+  @protected
+  RustStreamSink<LogEntry> dco_decode_StreamSink_log_entry_Sse(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    throw UnimplementedError();
+  }
+
+  @protected
   String dco_decode_String(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw as String;
@@ -207,6 +604,18 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   BigInt dco_decode_U128(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return BigInt.parse(raw);
+  }
+
+  @protected
+  bool dco_decode_bool(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw as bool;
+  }
+
+  @protected
+  bool dco_decode_box_autoadd_bool(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw as bool;
   }
 
   @protected
@@ -228,6 +637,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  LddKeyboard dco_decode_box_autoadd_ldd_keyboard(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return dco_decode_ldd_keyboard(raw);
+  }
+
+  @protected
   BigInt dco_decode_box_autoadd_u_64(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_u_64(raw);
@@ -243,6 +658,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   double dco_decode_f_64(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw as double;
+  }
+
+  @protected
+  int dco_decode_i_32(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw as int;
   }
 
   @protected
@@ -541,6 +962,24 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  LddKeyId dco_decode_ldd_key_id(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return LddKeyId.values[raw as int];
+  }
+
+  @protected
+  LddKeyboard dco_decode_ldd_keyboard(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    return LddKeyboard(
+      name: dco_decode_String(arr[0]),
+      serial: dco_decode_opt_String(arr[1]),
+    );
+  }
+
+  @protected
   LddKeyboardValue dco_decode_ldd_keyboard_value(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     switch (raw[0]) {
@@ -568,9 +1007,48 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  LddRawEvent dco_decode_ldd_raw_event(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    switch (raw[0]) {
+      case 0:
+        return LddRawEvent_LddKeyboardEvent(
+          dco_decode_usize(raw[1]),
+          dco_decode_ldd_key_id(raw[2]),
+          dco_decode_ldd_state(raw[3]),
+          dco_decode_box_autoadd_ldd_keyboard(raw[4]),
+        );
+      case 1:
+        return LddRawEvent_ScanGunEvent(
+          dco_decode_list_ldd_key_id(raw[1]),
+          dco_decode_box_autoadd_ldd_keyboard(raw[2]),
+        );
+      default:
+        throw Exception("unreachable");
+    }
+  }
+
+  @protected
+  LddState dco_decode_ldd_state(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return LddState.values[raw as int];
+  }
+
+  @protected
   List<LddEvent> dco_decode_list_ldd_event(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return (raw as List<dynamic>).map(dco_decode_ldd_event).toList();
+  }
+
+  @protected
+  List<LddKeyId> dco_decode_list_ldd_key_id(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>).map(dco_decode_ldd_key_id).toList();
+  }
+
+  @protected
+  List<LddKeyboard> dco_decode_list_ldd_keyboard(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>).map(dco_decode_ldd_keyboard).toList();
   }
 
   @protected
@@ -580,9 +1058,44 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  LogEntry dco_decode_log_entry(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 4)
+      throw Exception('unexpected arr length: expect 4 but see ${arr.length}');
+    return LogEntry(
+      timeMillis: dco_decode_i_64(arr[0]),
+      level: dco_decode_i_32(arr[1]),
+      tag: dco_decode_String(arr[2]),
+      msg: dco_decode_String(arr[3]),
+    );
+  }
+
+  @protected
+  MyMobileLogger dco_decode_my_mobile_logger(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 0)
+      throw Exception('unexpected arr length: expect 0 but see ${arr.length}');
+    return MyMobileLogger();
+  }
+
+  @protected
   String? dco_decode_opt_String(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw == null ? null : dco_decode_String(raw);
+  }
+
+  @protected
+  bool? dco_decode_opt_box_autoadd_bool(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw == null ? null : dco_decode_box_autoadd_bool(raw);
+  }
+
+  @protected
+  LddKeyboard? dco_decode_opt_box_autoadd_ldd_keyboard(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw == null ? null : dco_decode_box_autoadd_ldd_keyboard(raw);
   }
 
   @protected
@@ -595,6 +1108,15 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   BigInt? dco_decode_opt_box_autoadd_usize(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw == null ? null : dco_decode_box_autoadd_usize(raw);
+  }
+
+  @protected
+  SendToDartLogger dco_decode_send_to_dart_logger(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 0)
+      throw Exception('unexpected arr length: expect 0 but see ${arr.length}');
+    return SendToDartLogger();
   }
 
   @protected
@@ -635,6 +1157,33 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  LddKeyboardManager
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return LddKeyboardManagerImpl.frbInternalSseDecode(
+        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+  }
+
+  @protected
+  LddKeyboardManager
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return LddKeyboardManagerImpl.frbInternalSseDecode(
+        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+  }
+
+  @protected
+  LddKeyboardManager
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return LddKeyboardManagerImpl.frbInternalSseDecode(
+        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+  }
+
+  @protected
   RustStreamSink<LddEvent> sse_decode_StreamSink_ldd_event_Sse(
       SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
@@ -643,6 +1192,20 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   RustStreamSink<LddKeyboardValue> sse_decode_StreamSink_ldd_keyboard_value_Sse(
+      SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    throw UnimplementedError('Unreachable ()');
+  }
+
+  @protected
+  RustStreamSink<LddRawEvent> sse_decode_StreamSink_ldd_raw_event_Sse(
+      SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    throw UnimplementedError('Unreachable ()');
+  }
+
+  @protected
+  RustStreamSink<LogEntry> sse_decode_StreamSink_log_entry_Sse(
       SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     throw UnimplementedError('Unreachable ()');
@@ -660,6 +1223,18 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var inner = sse_decode_String(deserializer);
     return BigInt.parse(inner);
+  }
+
+  @protected
+  bool sse_decode_bool(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return deserializer.buffer.getUint8() != 0;
+  }
+
+  @protected
+  bool sse_decode_box_autoadd_bool(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return (sse_decode_bool(deserializer));
   }
 
   @protected
@@ -681,6 +1256,13 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  LddKeyboard sse_decode_box_autoadd_ldd_keyboard(
+      SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return (sse_decode_ldd_keyboard(deserializer));
+  }
+
+  @protected
   BigInt sse_decode_box_autoadd_u_64(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_u_64(deserializer));
@@ -696,6 +1278,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   double sse_decode_f_64(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return deserializer.buffer.getFloat64();
+  }
+
+  @protected
+  int sse_decode_i_32(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return deserializer.buffer.getInt32();
   }
 
   @protected
@@ -988,6 +1576,21 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  LddKeyId sse_decode_ldd_key_id(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var inner = sse_decode_i_32(deserializer);
+    return LddKeyId.values[inner];
+  }
+
+  @protected
+  LddKeyboard sse_decode_ldd_keyboard(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_name = sse_decode_String(deserializer);
+    var var_serial = sse_decode_opt_String(deserializer);
+    return LddKeyboard(name: var_name, serial: var_serial);
+  }
+
+  @protected
   LddKeyboardValue sse_decode_ldd_keyboard_value(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
 
@@ -1013,6 +1616,35 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  LddRawEvent sse_decode_ldd_raw_event(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var tag_ = sse_decode_i_32(deserializer);
+    switch (tag_) {
+      case 0:
+        var var_field0 = sse_decode_usize(deserializer);
+        var var_field1 = sse_decode_ldd_key_id(deserializer);
+        var var_field2 = sse_decode_ldd_state(deserializer);
+        var var_field3 = sse_decode_box_autoadd_ldd_keyboard(deserializer);
+        return LddRawEvent_LddKeyboardEvent(
+            var_field0, var_field1, var_field2, var_field3);
+      case 1:
+        var var_field0 = sse_decode_list_ldd_key_id(deserializer);
+        var var_field1 = sse_decode_box_autoadd_ldd_keyboard(deserializer);
+        return LddRawEvent_ScanGunEvent(var_field0, var_field1);
+      default:
+        throw UnimplementedError('');
+    }
+  }
+
+  @protected
+  LddState sse_decode_ldd_state(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var inner = sse_decode_i_32(deserializer);
+    return LddState.values[inner];
+  }
+
+  @protected
   List<LddEvent> sse_decode_list_ldd_event(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
 
@@ -1025,10 +1657,54 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  List<LddKeyId> sse_decode_list_ldd_key_id(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <LddKeyId>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(sse_decode_ldd_key_id(deserializer));
+    }
+    return ans_;
+  }
+
+  @protected
+  List<LddKeyboard> sse_decode_list_ldd_keyboard(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <LddKeyboard>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(sse_decode_ldd_keyboard(deserializer));
+    }
+    return ans_;
+  }
+
+  @protected
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var len_ = sse_decode_i_32(deserializer);
     return deserializer.buffer.getUint8List(len_);
+  }
+
+  @protected
+  LogEntry sse_decode_log_entry(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_timeMillis = sse_decode_i_64(deserializer);
+    var var_level = sse_decode_i_32(deserializer);
+    var var_tag = sse_decode_String(deserializer);
+    var var_msg = sse_decode_String(deserializer);
+    return LogEntry(
+        timeMillis: var_timeMillis,
+        level: var_level,
+        tag: var_tag,
+        msg: var_msg);
+  }
+
+  @protected
+  MyMobileLogger sse_decode_my_mobile_logger(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return MyMobileLogger();
   }
 
   @protected
@@ -1037,6 +1713,29 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
     if (sse_decode_bool(deserializer)) {
       return (sse_decode_String(deserializer));
+    } else {
+      return null;
+    }
+  }
+
+  @protected
+  bool? sse_decode_opt_box_autoadd_bool(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    if (sse_decode_bool(deserializer)) {
+      return (sse_decode_box_autoadd_bool(deserializer));
+    } else {
+      return null;
+    }
+  }
+
+  @protected
+  LddKeyboard? sse_decode_opt_box_autoadd_ldd_keyboard(
+      SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    if (sse_decode_bool(deserializer)) {
+      return (sse_decode_box_autoadd_ldd_keyboard(deserializer));
     } else {
       return null;
     }
@@ -1062,6 +1761,13 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     } else {
       return null;
     }
+  }
+
+  @protected
+  SendToDartLogger sse_decode_send_to_dart_logger(
+      SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return SendToDartLogger();
   }
 
   @protected
@@ -1094,22 +1800,40 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  int sse_decode_i_32(SseDeserializer deserializer) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return deserializer.buffer.getInt32();
-  }
-
-  @protected
-  bool sse_decode_bool(SseDeserializer deserializer) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return deserializer.buffer.getUint8() != 0;
-  }
-
-  @protected
   void sse_encode_AnyhowException(
       AnyhowException self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.message, serializer);
+  }
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          LddKeyboardManager self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+        (self as LddKeyboardManagerImpl).frbInternalSseEncode(move: true),
+        serializer);
+  }
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          LddKeyboardManager self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+        (self as LddKeyboardManagerImpl).frbInternalSseEncode(move: false),
+        serializer);
+  }
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          LddKeyboardManager self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+        (self as LddKeyboardManagerImpl).frbInternalSseEncode(move: null),
+        serializer);
   }
 
   @protected
@@ -1139,6 +1863,32 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_StreamSink_ldd_raw_event_Sse(
+      RustStreamSink<LddRawEvent> self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_String(
+        self.setupAndSerialize(
+            codec: SseCodec(
+          decodeSuccessData: sse_decode_ldd_raw_event,
+          decodeErrorData: sse_decode_AnyhowException,
+        )),
+        serializer);
+  }
+
+  @protected
+  void sse_encode_StreamSink_log_entry_Sse(
+      RustStreamSink<LogEntry> self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_String(
+        self.setupAndSerialize(
+            codec: SseCodec(
+          decodeSuccessData: sse_decode_log_entry,
+          decodeErrorData: sse_decode_AnyhowException,
+        )),
+        serializer);
+  }
+
+  @protected
   void sse_encode_String(String self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_list_prim_u_8_strict(utf8.encoder.convert(self), serializer);
@@ -1148,6 +1898,18 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   void sse_encode_U128(BigInt self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.toString(), serializer);
+  }
+
+  @protected
+  void sse_encode_bool(bool self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    serializer.buffer.putUint8(self ? 1 : 0);
+  }
+
+  @protected
+  void sse_encode_box_autoadd_bool(bool self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_bool(self, serializer);
   }
 
   @protected
@@ -1171,6 +1933,13 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_box_autoadd_ldd_keyboard(
+      LddKeyboard self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_ldd_keyboard(self, serializer);
+  }
+
+  @protected
   void sse_encode_box_autoadd_u_64(BigInt self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_u_64(self, serializer);
@@ -1186,6 +1955,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   void sse_encode_f_64(double self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     serializer.buffer.putFloat64(self);
+  }
+
+  @protected
+  void sse_encode_i_32(int self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    serializer.buffer.putInt32(self);
   }
 
   @protected
@@ -1471,6 +2246,19 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_ldd_key_id(LddKeyId self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.index, serializer);
+  }
+
+  @protected
+  void sse_encode_ldd_keyboard(LddKeyboard self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_String(self.name, serializer);
+    sse_encode_opt_String(self.serial, serializer);
+  }
+
+  @protected
   void sse_encode_ldd_keyboard_value(
       LddKeyboardValue self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
@@ -1501,12 +2289,62 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_ldd_raw_event(LddRawEvent self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    switch (self) {
+      case LddRawEvent_LddKeyboardEvent(
+          field0: final field0,
+          field1: final field1,
+          field2: final field2,
+          field3: final field3
+        ):
+        sse_encode_i_32(0, serializer);
+        sse_encode_usize(field0, serializer);
+        sse_encode_ldd_key_id(field1, serializer);
+        sse_encode_ldd_state(field2, serializer);
+        sse_encode_box_autoadd_ldd_keyboard(field3, serializer);
+      case LddRawEvent_ScanGunEvent(field0: final field0, field1: final field1):
+        sse_encode_i_32(1, serializer);
+        sse_encode_list_ldd_key_id(field0, serializer);
+        sse_encode_box_autoadd_ldd_keyboard(field1, serializer);
+      default:
+        throw UnimplementedError('');
+    }
+  }
+
+  @protected
+  void sse_encode_ldd_state(LddState self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.index, serializer);
+  }
+
+  @protected
   void sse_encode_list_ldd_event(
       List<LddEvent> self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     for (final item in self) {
       sse_encode_ldd_event(item, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_list_ldd_key_id(
+      List<LddKeyId> self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_ldd_key_id(item, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_list_ldd_keyboard(
+      List<LddKeyboard> self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_ldd_keyboard(item, serializer);
     }
   }
 
@@ -1519,12 +2357,48 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_log_entry(LogEntry self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_64(self.timeMillis, serializer);
+    sse_encode_i_32(self.level, serializer);
+    sse_encode_String(self.tag, serializer);
+    sse_encode_String(self.msg, serializer);
+  }
+
+  @protected
+  void sse_encode_my_mobile_logger(
+      MyMobileLogger self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+  }
+
+  @protected
   void sse_encode_opt_String(String? self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
 
     sse_encode_bool(self != null, serializer);
     if (self != null) {
       sse_encode_String(self, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_opt_box_autoadd_bool(bool? self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    sse_encode_bool(self != null, serializer);
+    if (self != null) {
+      sse_encode_box_autoadd_bool(self, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_opt_box_autoadd_ldd_keyboard(
+      LddKeyboard? self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    sse_encode_bool(self != null, serializer);
+    if (self != null) {
+      sse_encode_box_autoadd_ldd_keyboard(self, serializer);
     }
   }
 
@@ -1547,6 +2421,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     if (self != null) {
       sse_encode_box_autoadd_usize(self, serializer);
     }
+  }
+
+  @protected
+  void sse_encode_send_to_dart_logger(
+      SendToDartLogger self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
   }
 
   @protected
@@ -1577,16 +2457,44 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     // Codec=Sse (Serialization based), see doc to use other codecs
     serializer.buffer.putBigUint64(self);
   }
+}
 
-  @protected
-  void sse_encode_i_32(int self, SseSerializer serializer) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    serializer.buffer.putInt32(self);
-  }
+@sealed
+class LddKeyboardManagerImpl extends RustOpaque implements LddKeyboardManager {
+  // Not to be used by end users
+  LddKeyboardManagerImpl.frbInternalDcoDecode(List<dynamic> wire)
+      : super.frbInternalDcoDecode(wire, _kStaticData);
 
-  @protected
-  void sse_encode_bool(bool self, SseSerializer serializer) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    serializer.buffer.putUint8(self ? 1 : 0);
-  }
+  // Not to be used by end users
+  LddKeyboardManagerImpl.frbInternalSseDecode(
+      BigInt ptr, int externalSizeOnNative)
+      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+
+  static final _kStaticData = RustArcStaticData(
+    rustArcIncrementStrongCount:
+        RustLib.instance.api.rust_arc_increment_strong_count_LddKeyboardManager,
+    rustArcDecrementStrongCount:
+        RustLib.instance.api.rust_arc_decrement_strong_count_LddKeyboardManager,
+    rustArcDecrementStrongCountPtr: RustLib
+        .instance.api.rust_arc_decrement_strong_count_LddKeyboardManagerPtr,
+  );
+
+  ///读取键盘类型的设备信息
+  List<LddKeyboard> getLddKeyboardList() => RustLib.instance.api
+          .crateApiMultiinputLddKeyboardManagerGetLddKeyboardList(
+        that: this,
+      );
+
+  ///监听梁典典键盘数据
+  /// [gun_device] - 扫码枪设备，如果不传，则不判断
+  Stream<LddRawEvent> listenLddKeyboardEvent({LddKeyboard? gunDevice}) =>
+      RustLib.instance.api
+          .crateApiMultiinputLddKeyboardManagerListenLddKeyboardEvent(
+              that: this, gunDevice: gunDevice);
+
+  ///注册键盘监听
+  void register() =>
+      RustLib.instance.api.crateApiMultiinputLddKeyboardManagerRegister(
+        that: this,
+      );
 }

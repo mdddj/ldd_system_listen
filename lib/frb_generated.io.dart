@@ -3,7 +3,10 @@
 
 // ignore_for_file: unused_import, unused_element, unnecessary_import, duplicate_ignore, invalid_use_of_internal_member, annotate_overrides, non_constant_identifier_names, curly_braces_in_flow_control_structures, prefer_const_literals_to_create_immutables, unused_field
 
+import 'api/entitys.dart';
 import 'api/keyboard_listen.dart';
+import 'api/logger.dart';
+import 'api/multiinput.dart';
 import 'api/syste.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -19,8 +22,27 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
     required super.portManager,
   });
 
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_LddKeyboardManagerPtr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManagerPtr;
+
   @protected
   AnyhowException dco_decode_AnyhowException(dynamic raw);
+
+  @protected
+  LddKeyboardManager
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          dynamic raw);
+
+  @protected
+  LddKeyboardManager
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          dynamic raw);
+
+  @protected
+  LddKeyboardManager
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          dynamic raw);
 
   @protected
   RustStreamSink<LddEvent> dco_decode_StreamSink_ldd_event_Sse(dynamic raw);
@@ -30,10 +52,23 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       dynamic raw);
 
   @protected
+  RustStreamSink<LddRawEvent> dco_decode_StreamSink_ldd_raw_event_Sse(
+      dynamic raw);
+
+  @protected
+  RustStreamSink<LogEntry> dco_decode_StreamSink_log_entry_Sse(dynamic raw);
+
+  @protected
   String dco_decode_String(dynamic raw);
 
   @protected
   BigInt dco_decode_U128(dynamic raw);
+
+  @protected
+  bool dco_decode_bool(dynamic raw);
+
+  @protected
+  bool dco_decode_box_autoadd_bool(dynamic raw);
 
   @protected
   LddButton dco_decode_box_autoadd_ldd_button(dynamic raw);
@@ -45,6 +80,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   LddKey dco_decode_box_autoadd_ldd_key(dynamic raw);
 
   @protected
+  LddKeyboard dco_decode_box_autoadd_ldd_keyboard(dynamic raw);
+
+  @protected
   BigInt dco_decode_box_autoadd_u_64(dynamic raw);
 
   @protected
@@ -52,6 +90,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   double dco_decode_f_64(dynamic raw);
+
+  @protected
+  int dco_decode_i_32(dynamic raw);
 
   @protected
   PlatformInt64 dco_decode_i_64(dynamic raw);
@@ -69,22 +110,55 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   LddKey dco_decode_ldd_key(dynamic raw);
 
   @protected
+  LddKeyId dco_decode_ldd_key_id(dynamic raw);
+
+  @protected
+  LddKeyboard dco_decode_ldd_keyboard(dynamic raw);
+
+  @protected
   LddKeyboardValue dco_decode_ldd_keyboard_value(dynamic raw);
+
+  @protected
+  LddRawEvent dco_decode_ldd_raw_event(dynamic raw);
+
+  @protected
+  LddState dco_decode_ldd_state(dynamic raw);
 
   @protected
   List<LddEvent> dco_decode_list_ldd_event(dynamic raw);
 
   @protected
+  List<LddKeyId> dco_decode_list_ldd_key_id(dynamic raw);
+
+  @protected
+  List<LddKeyboard> dco_decode_list_ldd_keyboard(dynamic raw);
+
+  @protected
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
 
   @protected
+  LogEntry dco_decode_log_entry(dynamic raw);
+
+  @protected
+  MyMobileLogger dco_decode_my_mobile_logger(dynamic raw);
+
+  @protected
   String? dco_decode_opt_String(dynamic raw);
+
+  @protected
+  bool? dco_decode_opt_box_autoadd_bool(dynamic raw);
+
+  @protected
+  LddKeyboard? dco_decode_opt_box_autoadd_ldd_keyboard(dynamic raw);
 
   @protected
   BigInt? dco_decode_opt_box_autoadd_u_64(dynamic raw);
 
   @protected
   BigInt? dco_decode_opt_box_autoadd_usize(dynamic raw);
+
+  @protected
+  SendToDartLogger dco_decode_send_to_dart_logger(dynamic raw);
 
   @protected
   int dco_decode_u_32(dynamic raw);
@@ -105,6 +179,21 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   AnyhowException sse_decode_AnyhowException(SseDeserializer deserializer);
 
   @protected
+  LddKeyboardManager
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          SseDeserializer deserializer);
+
+  @protected
+  LddKeyboardManager
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          SseDeserializer deserializer);
+
+  @protected
+  LddKeyboardManager
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          SseDeserializer deserializer);
+
+  @protected
   RustStreamSink<LddEvent> sse_decode_StreamSink_ldd_event_Sse(
       SseDeserializer deserializer);
 
@@ -113,10 +202,24 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       SseDeserializer deserializer);
 
   @protected
+  RustStreamSink<LddRawEvent> sse_decode_StreamSink_ldd_raw_event_Sse(
+      SseDeserializer deserializer);
+
+  @protected
+  RustStreamSink<LogEntry> sse_decode_StreamSink_log_entry_Sse(
+      SseDeserializer deserializer);
+
+  @protected
   String sse_decode_String(SseDeserializer deserializer);
 
   @protected
   BigInt sse_decode_U128(SseDeserializer deserializer);
+
+  @protected
+  bool sse_decode_bool(SseDeserializer deserializer);
+
+  @protected
+  bool sse_decode_box_autoadd_bool(SseDeserializer deserializer);
 
   @protected
   LddButton sse_decode_box_autoadd_ldd_button(SseDeserializer deserializer);
@@ -128,6 +231,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   LddKey sse_decode_box_autoadd_ldd_key(SseDeserializer deserializer);
 
   @protected
+  LddKeyboard sse_decode_box_autoadd_ldd_keyboard(SseDeserializer deserializer);
+
+  @protected
   BigInt sse_decode_box_autoadd_u_64(SseDeserializer deserializer);
 
   @protected
@@ -135,6 +241,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   double sse_decode_f_64(SseDeserializer deserializer);
+
+  @protected
+  int sse_decode_i_32(SseDeserializer deserializer);
 
   @protected
   PlatformInt64 sse_decode_i_64(SseDeserializer deserializer);
@@ -152,22 +261,56 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   LddKey sse_decode_ldd_key(SseDeserializer deserializer);
 
   @protected
+  LddKeyId sse_decode_ldd_key_id(SseDeserializer deserializer);
+
+  @protected
+  LddKeyboard sse_decode_ldd_keyboard(SseDeserializer deserializer);
+
+  @protected
   LddKeyboardValue sse_decode_ldd_keyboard_value(SseDeserializer deserializer);
+
+  @protected
+  LddRawEvent sse_decode_ldd_raw_event(SseDeserializer deserializer);
+
+  @protected
+  LddState sse_decode_ldd_state(SseDeserializer deserializer);
 
   @protected
   List<LddEvent> sse_decode_list_ldd_event(SseDeserializer deserializer);
 
   @protected
+  List<LddKeyId> sse_decode_list_ldd_key_id(SseDeserializer deserializer);
+
+  @protected
+  List<LddKeyboard> sse_decode_list_ldd_keyboard(SseDeserializer deserializer);
+
+  @protected
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
 
   @protected
+  LogEntry sse_decode_log_entry(SseDeserializer deserializer);
+
+  @protected
+  MyMobileLogger sse_decode_my_mobile_logger(SseDeserializer deserializer);
+
+  @protected
   String? sse_decode_opt_String(SseDeserializer deserializer);
+
+  @protected
+  bool? sse_decode_opt_box_autoadd_bool(SseDeserializer deserializer);
+
+  @protected
+  LddKeyboard? sse_decode_opt_box_autoadd_ldd_keyboard(
+      SseDeserializer deserializer);
 
   @protected
   BigInt? sse_decode_opt_box_autoadd_u_64(SseDeserializer deserializer);
 
   @protected
   BigInt? sse_decode_opt_box_autoadd_usize(SseDeserializer deserializer);
+
+  @protected
+  SendToDartLogger sse_decode_send_to_dart_logger(SseDeserializer deserializer);
 
   @protected
   int sse_decode_u_32(SseDeserializer deserializer);
@@ -185,14 +328,23 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   BigInt sse_decode_usize(SseDeserializer deserializer);
 
   @protected
-  int sse_decode_i_32(SseDeserializer deserializer);
-
-  @protected
-  bool sse_decode_bool(SseDeserializer deserializer);
-
-  @protected
   void sse_encode_AnyhowException(
       AnyhowException self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          LddKeyboardManager self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          LddKeyboardManager self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+          LddKeyboardManager self, SseSerializer serializer);
 
   @protected
   void sse_encode_StreamSink_ldd_event_Sse(
@@ -203,10 +355,24 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       RustStreamSink<LddKeyboardValue> self, SseSerializer serializer);
 
   @protected
+  void sse_encode_StreamSink_ldd_raw_event_Sse(
+      RustStreamSink<LddRawEvent> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_StreamSink_log_entry_Sse(
+      RustStreamSink<LogEntry> self, SseSerializer serializer);
+
+  @protected
   void sse_encode_String(String self, SseSerializer serializer);
 
   @protected
   void sse_encode_U128(BigInt self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_bool(bool self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd_bool(bool self, SseSerializer serializer);
 
   @protected
   void sse_encode_box_autoadd_ldd_button(
@@ -220,6 +386,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   void sse_encode_box_autoadd_ldd_key(LddKey self, SseSerializer serializer);
 
   @protected
+  void sse_encode_box_autoadd_ldd_keyboard(
+      LddKeyboard self, SseSerializer serializer);
+
+  @protected
   void sse_encode_box_autoadd_u_64(BigInt self, SseSerializer serializer);
 
   @protected
@@ -227,6 +397,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   void sse_encode_f_64(double self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_i_32(int self, SseSerializer serializer);
 
   @protected
   void sse_encode_i_64(PlatformInt64 self, SseSerializer serializer);
@@ -244,24 +417,62 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   void sse_encode_ldd_key(LddKey self, SseSerializer serializer);
 
   @protected
+  void sse_encode_ldd_key_id(LddKeyId self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_ldd_keyboard(LddKeyboard self, SseSerializer serializer);
+
+  @protected
   void sse_encode_ldd_keyboard_value(
       LddKeyboardValue self, SseSerializer serializer);
 
   @protected
+  void sse_encode_ldd_raw_event(LddRawEvent self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_ldd_state(LddState self, SseSerializer serializer);
+
+  @protected
   void sse_encode_list_ldd_event(List<LddEvent> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list_ldd_key_id(
+      List<LddKeyId> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list_ldd_keyboard(
+      List<LddKeyboard> self, SseSerializer serializer);
 
   @protected
   void sse_encode_list_prim_u_8_strict(
       Uint8List self, SseSerializer serializer);
 
   @protected
+  void sse_encode_log_entry(LogEntry self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_my_mobile_logger(
+      MyMobileLogger self, SseSerializer serializer);
+
+  @protected
   void sse_encode_opt_String(String? self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_opt_box_autoadd_bool(bool? self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_opt_box_autoadd_ldd_keyboard(
+      LddKeyboard? self, SseSerializer serializer);
 
   @protected
   void sse_encode_opt_box_autoadd_u_64(BigInt? self, SseSerializer serializer);
 
   @protected
   void sse_encode_opt_box_autoadd_usize(BigInt? self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_send_to_dart_logger(
+      SendToDartLogger self, SseSerializer serializer);
 
   @protected
   void sse_encode_u_32(int self, SseSerializer serializer);
@@ -277,12 +488,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   void sse_encode_usize(BigInt self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_i_32(int self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_bool(bool self, SseSerializer serializer);
 }
 
 // Section: wire_class
@@ -298,4 +503,36 @@ class RustLibWire implements BaseWire {
   /// The symbols are looked up in [dynamicLibrary].
   RustLibWire(ffi.DynamicLibrary dynamicLibrary)
       : _lookup = dynamicLibrary.lookup;
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManagerPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_ldd_system_listen_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManagerPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManagerPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_ldd_system_listen_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManagerPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 }

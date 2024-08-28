@@ -9,3 +9,11 @@ crate-type = ["cdylib", "staticlib"]
 [dependencies]
 rdev = { version = "0.5.3", futures = ["serialize"] }
 flutter_rust_bridge = "=2.3.0"
+multiinput = "0.1.0"
+lazy_static = "1.5.0"
+log = "0.4.22"
+parking_lot = "0.12.3"
+simplelog = {version="0.12.2",futures=["time"]}
+time = "0.3.36"
+anyhow = "1.0.86"
+tokio = { version="1.39.3",futures=["sync"]}

@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:ldd_system_listen/api/keyboard_listen.dart';
-import 'package:ldd_system_listen/api/syste.dart';
-
+import 'package:ldd_system_listen/api/entitys.dart';
+import 'package:ldd_system_listen/api/multiinput.dart';
+import 'package:ldd_system_listen/frb_generated.dart';
 import 'package:ldd_system_listen/ldd_system_listen.dart';
 
-void main() {
-  initLib();
+Future<void> main() async {
+  await RustLib.init();
   runApp(const MyApp());
 }
 
@@ -19,37 +19,25 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  StreamSubscription<LddKeyboardValue>? stream;
-
+  final keyboardManager =
+      LddKeyboardManager(printDebug: true, gunAddEndReturnKey: true); //初始化键盘管理器
+  List<LddKeyboard> keyboards = []; //电脑连接的设备列表
+  StreamSubscription<LddRawEvent>? stream; //监听键盘事件流
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 1), _startListen);
+    Future.microtask(init);
   }
 
-  void disponseListen() {
-    stream?.cancel();
-  }
+  ///初始化键盘管理器
+  void init() {
+    keyboardManager.register(); //注册键盘监听事件
+    keyboards = keyboardManager.getLddKeyboardList(); //获取键盘设备列表，包括传统键盘，扫码枪等特殊键盘
+    setState(() {}); //刷新ui
 
-  FutureOr _startListen() async {
-    stream = startListen().listen(onScanCode);
-  }
-
-  void onScanCode(LddKeyboardValue event) {
-    event.whenOrNull(
-      keyboardValueV2: (field0) {
-        debugPrint("键盘:${field0.name}");
-      },
-      scanGunValueV2: (field0) {
-        debugPrint("扫描枪${field0.map((e) => e.name)}");
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    disponseListen();
-    super.dispose();
+    stream ??= keyboardManager
+        .listenLddKeyboardEvent(gunDevice: keyboards.first)
+        .listen(onKeyboardListen);
   }
 
   @override
@@ -57,14 +45,38 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Native Packages'),
+          title: const Text("键盘测试"),
         ),
-        body: const SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Column(
-            children: [],
+            children: [
+              if (keyboards.isEmpty) const Text('没有检测到键盘设备'),
+              ...keyboards.map((item) {
+                return Card(
+                  child: ListTile(
+                    title: Text(item.name),
+                    subtitle: Text(item.serial ?? "-"),
+                  ),
+                );
+              })
+            ],
           ),
         ),
       ),
     );
+  }
+
+  ///监听原始键盘事件
+  void onKeyboardListen(LddRawEvent event) {
+    event.printInfo();
+  }
+
+  @override
+  void dispose() {
+    //销毁监听
+    stream?.cancel();
+    //释放内存
+    keyboardManager.dispose();
+    super.dispose();
   }
 }

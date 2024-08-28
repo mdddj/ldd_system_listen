@@ -25,6 +25,7 @@
 
 // Section: imports
 
+use crate::api::multiinput::*;
 use flutter_rust_bridge::for_generated::byteorder::{NativeEndian, ReadBytesExt, WriteBytesExt};
 use flutter_rust_bridge::for_generated::{transform_result_dco, Lifetimeable, Lockable};
 use flutter_rust_bridge::{Handler, IntoIntoDart};
@@ -37,7 +38,7 @@ flutter_rust_bridge::frb_generated_boilerplate!(
     default_rust_auto_opaque = RustAutoOpaqueMoi,
 );
 pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_VERSION: &str = "2.3.0";
-pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = -2110124214;
+pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = -1267495477;
 
 // Section: executor
 
@@ -45,6 +46,69 @@ flutter_rust_bridge::frb_generated_default_handler!();
 
 // Section: wire_funcs
 
+fn wire__crate__api__entitys__ldd_key_id_key_id_to_string_impl(
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) -> flutter_rust_bridge::for_generated::WireSyncRust2DartSse {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_sync::<flutter_rust_bridge::for_generated::SseCodec, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "ldd_key_id_key_id_to_string",
+            port: None,
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Sync,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <crate::api::entitys::LddKeyId>::sse_decode(&mut deserializer);
+            deserializer.end();
+            transform_result_sse::<_, ()>((move || {
+                let output_ok = Result::<_, ()>::Ok(
+                    crate::api::entitys::LddKeyId::key_id_to_string(&api_that),
+                )?;
+                Ok(output_ok)
+            })())
+        },
+    )
+}
+fn wire__crate__api__entitys__ldd_state_format_string_impl(
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) -> flutter_rust_bridge::for_generated::WireSyncRust2DartSse {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_sync::<flutter_rust_bridge::for_generated::SseCodec, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "ldd_state_format_string",
+            port: None,
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Sync,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <crate::api::entitys::LddState>::sse_decode(&mut deserializer);
+            deserializer.end();
+            transform_result_sse::<_, ()>((move || {
+                let output_ok =
+                    Result::<_, ()>::Ok(crate::api::entitys::LddState::format_string(&api_that))?;
+                Ok(output_ok)
+            })())
+        },
+    )
+}
 fn wire__crate__api__keyboard_listen__start_listen_impl(
     port_: flutter_rust_bridge::for_generated::MessagePort,
     ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
@@ -80,6 +144,393 @@ fn wire__crate__api__keyboard_listen__start_listen_impl(
                     Ok(output_ok)
                 })())
             }
+        },
+    )
+}
+fn wire__crate__api__logger__create_log_stream_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "create_log_stream",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_s = <StreamSink<
+                crate::api::entitys::LogEntry,
+                flutter_rust_bridge::for_generated::SseCodec,
+            >>::sse_decode(&mut deserializer);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, flutter_rust_bridge::for_generated::anyhow::Error>(
+                    (move || {
+                        let output_ok = crate::api::logger::create_log_stream(api_s)?;
+                        Ok(output_ok)
+                    })(),
+                )
+            }
+        },
+    )
+}
+fn wire__crate__api__logger__init_logger_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "init_logger",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok = Result::<_, ()>::Ok({
+                        crate::api::logger::init_logger();
+                    })?;
+                    Ok(output_ok)
+                })())
+            }
+        },
+    )
+}
+fn wire__crate__api__logger__my_mobile_logger_new_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "my_mobile_logger_new",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok = Result::<_, ()>::Ok(crate::api::logger::MyMobileLogger::new())?;
+                    Ok(output_ok)
+                })())
+            }
+        },
+    )
+}
+fn wire__crate__api__logger__rust_set_up_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "rust_set_up",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok = Result::<_, ()>::Ok({
+                        crate::api::logger::rust_set_up();
+                    })?;
+                    Ok(output_ok)
+                })())
+            }
+        },
+    )
+}
+fn wire__crate__api__logger__send_to_dart_logger_new_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "send_to_dart_logger_new",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok =
+                        Result::<_, ()>::Ok(crate::api::logger::SendToDartLogger::new())?;
+                    Ok(output_ok)
+                })())
+            }
+        },
+    )
+}
+fn wire__crate__api__logger__send_to_dart_logger_set_stream_sink_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "send_to_dart_logger_set_stream_sink",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_stream_sink = <StreamSink<
+                crate::api::entitys::LogEntry,
+                flutter_rust_bridge::for_generated::SseCodec,
+            >>::sse_decode(&mut deserializer);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok = Result::<_, ()>::Ok({
+                        crate::api::logger::SendToDartLogger::set_stream_sink(api_stream_sink);
+                    })?;
+                    Ok(output_ok)
+                })())
+            }
+        },
+    )
+}
+fn wire__crate__api__multiinput__LddKeyboardManager_get_ldd_keyboard_list_impl(
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) -> flutter_rust_bridge::for_generated::WireSyncRust2DartSse {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_sync::<flutter_rust_bridge::for_generated::SseCodec, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "LddKeyboardManager_get_ldd_keyboard_list",
+            port: None,
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Sync,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <RustOpaqueMoi<
+                flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>,
+            >>::sse_decode(&mut deserializer);
+            deserializer.end();
+            transform_result_sse::<_, ()>((move || {
+                let mut api_that_guard = None;
+                let decode_indices_ =
+                    flutter_rust_bridge::for_generated::lockable_compute_decode_order(vec![
+                        flutter_rust_bridge::for_generated::LockableOrderInfo::new(
+                            &api_that, 0, true,
+                        ),
+                    ]);
+                for i in decode_indices_ {
+                    match i {
+                        0 => api_that_guard = Some(api_that.lockable_decode_sync_ref_mut()),
+                        _ => unreachable!(),
+                    }
+                }
+                let mut api_that_guard = api_that_guard.unwrap();
+                let output_ok = Result::<_, ()>::Ok(
+                    crate::api::multiinput::LddKeyboardManager::get_ldd_keyboard_list(
+                        &mut *api_that_guard,
+                    ),
+                )?;
+                Ok(output_ok)
+            })())
+        },
+    )
+}
+fn wire__crate__api__multiinput__LddKeyboardManager_listen_ldd_keyboard_event_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "LddKeyboardManager_listen_ldd_keyboard_event",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <LddKeyboardManager>::sse_decode(&mut deserializer);
+            let api_gun_device =
+                <Option<crate::api::entitys::LddKeyboard>>::sse_decode(&mut deserializer);
+            let api_sink = <StreamSink<
+                crate::api::entitys::LddRawEvent,
+                flutter_rust_bridge::for_generated::SseCodec,
+            >>::sse_decode(&mut deserializer);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok = Result::<_, ()>::Ok({
+                        crate::api::multiinput::LddKeyboardManager::listen_ldd_keyboard_event(
+                            api_that,
+                            api_gun_device,
+                            api_sink,
+                        );
+                    })?;
+                    Ok(output_ok)
+                })())
+            }
+        },
+    )
+}
+fn wire__crate__api__multiinput__LddKeyboardManager_new_impl(
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) -> flutter_rust_bridge::for_generated::WireSyncRust2DartSse {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_sync::<flutter_rust_bridge::for_generated::SseCodec, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "LddKeyboardManager_new",
+            port: None,
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Sync,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_print_debug = <Option<bool>>::sse_decode(&mut deserializer);
+            let api_gun_add_end_return_key = <Option<bool>>::sse_decode(&mut deserializer);
+            deserializer.end();
+            transform_result_sse::<_, ()>((move || {
+                let output_ok =
+                    Result::<_, ()>::Ok(crate::api::multiinput::LddKeyboardManager::new(
+                        api_print_debug,
+                        api_gun_add_end_return_key,
+                    ))?;
+                Ok(output_ok)
+            })())
+        },
+    )
+}
+fn wire__crate__api__multiinput__LddKeyboardManager_register_impl(
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) -> flutter_rust_bridge::for_generated::WireSyncRust2DartSse {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_sync::<flutter_rust_bridge::for_generated::SseCodec, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "LddKeyboardManager_register",
+            port: None,
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Sync,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_that = <RustOpaqueMoi<
+                flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>,
+            >>::sse_decode(&mut deserializer);
+            deserializer.end();
+            transform_result_sse::<_, ()>((move || {
+                let mut api_that_guard = None;
+                let decode_indices_ =
+                    flutter_rust_bridge::for_generated::lockable_compute_decode_order(vec![
+                        flutter_rust_bridge::for_generated::LockableOrderInfo::new(
+                            &api_that, 0, true,
+                        ),
+                    ]);
+                for i in decode_indices_ {
+                    match i {
+                        0 => api_that_guard = Some(api_that.lockable_decode_sync_ref_mut()),
+                        _ => unreachable!(),
+                    }
+                }
+                let mut api_that_guard = api_that_guard.unwrap();
+                let output_ok = Result::<_, ()>::Ok({
+                    crate::api::multiinput::LddKeyboardManager::register(&mut *api_that_guard);
+                })?;
+                Ok(output_ok)
+            })())
         },
     )
 }
@@ -164,6 +615,12 @@ fn wire__crate__api__syste__start_listen_systen_event_by_ldd_impl(
     )
 }
 
+// Section: related_funcs
+
+flutter_rust_bridge::frb_generated_moi_arc_impl_value!(
+    flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>
+);
+
 // Section: dart2rust
 
 impl SseDecode for flutter_rust_bridge::for_generated::anyhow::Error {
@@ -171,6 +628,26 @@ impl SseDecode for flutter_rust_bridge::for_generated::anyhow::Error {
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
         let mut inner = <String>::sse_decode(deserializer);
         return flutter_rust_bridge::for_generated::anyhow::anyhow!("{}", inner);
+    }
+}
+
+impl SseDecode for LddKeyboardManager {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <RustOpaqueMoi<
+            flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>,
+        >>::sse_decode(deserializer);
+        return flutter_rust_bridge::for_generated::rust_auto_opaque_decode_owned(inner);
+    }
+}
+
+impl SseDecode
+    for RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>>
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <usize>::sse_decode(deserializer);
+        return decode_rust_opaque_moi(inner);
     }
 }
 
@@ -197,6 +674,26 @@ impl SseDecode
     }
 }
 
+impl SseDecode
+    for StreamSink<crate::api::entitys::LddRawEvent, flutter_rust_bridge::for_generated::SseCodec>
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <String>::sse_decode(deserializer);
+        return StreamSink::deserialize(inner);
+    }
+}
+
+impl SseDecode
+    for StreamSink<crate::api::entitys::LogEntry, flutter_rust_bridge::for_generated::SseCodec>
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <String>::sse_decode(deserializer);
+        return StreamSink::deserialize(inner);
+    }
+}
+
 impl SseDecode for String {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
@@ -213,10 +710,24 @@ impl SseDecode for u128 {
     }
 }
 
+impl SseDecode for bool {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        deserializer.cursor.read_u8().unwrap() != 0
+    }
+}
+
 impl SseDecode for f64 {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
         deserializer.cursor.read_f64::<NativeEndian>().unwrap()
+    }
+}
+
+impl SseDecode for i32 {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        deserializer.cursor.read_i32::<NativeEndian>().unwrap()
     }
 }
 
@@ -636,6 +1147,118 @@ impl SseDecode for crate::api::syste::LddKey {
     }
 }
 
+impl SseDecode for crate::api::entitys::LddKeyId {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <i32>::sse_decode(deserializer);
+        return match inner {
+            0 => crate::api::entitys::LddKeyId::Escape,
+            1 => crate::api::entitys::LddKeyId::Return,
+            2 => crate::api::entitys::LddKeyId::Backspace,
+            3 => crate::api::entitys::LddKeyId::Left,
+            4 => crate::api::entitys::LddKeyId::Right,
+            5 => crate::api::entitys::LddKeyId::Up,
+            6 => crate::api::entitys::LddKeyId::Down,
+            7 => crate::api::entitys::LddKeyId::Space,
+            8 => crate::api::entitys::LddKeyId::A,
+            9 => crate::api::entitys::LddKeyId::B,
+            10 => crate::api::entitys::LddKeyId::C,
+            11 => crate::api::entitys::LddKeyId::D,
+            12 => crate::api::entitys::LddKeyId::E,
+            13 => crate::api::entitys::LddKeyId::F,
+            14 => crate::api::entitys::LddKeyId::G,
+            15 => crate::api::entitys::LddKeyId::H,
+            16 => crate::api::entitys::LddKeyId::I,
+            17 => crate::api::entitys::LddKeyId::J,
+            18 => crate::api::entitys::LddKeyId::K,
+            19 => crate::api::entitys::LddKeyId::L,
+            20 => crate::api::entitys::LddKeyId::M,
+            21 => crate::api::entitys::LddKeyId::N,
+            22 => crate::api::entitys::LddKeyId::O,
+            23 => crate::api::entitys::LddKeyId::P,
+            24 => crate::api::entitys::LddKeyId::Q,
+            25 => crate::api::entitys::LddKeyId::R,
+            26 => crate::api::entitys::LddKeyId::S,
+            27 => crate::api::entitys::LddKeyId::T,
+            28 => crate::api::entitys::LddKeyId::U,
+            29 => crate::api::entitys::LddKeyId::V,
+            30 => crate::api::entitys::LddKeyId::W,
+            31 => crate::api::entitys::LddKeyId::X,
+            32 => crate::api::entitys::LddKeyId::Y,
+            33 => crate::api::entitys::LddKeyId::Z,
+            34 => crate::api::entitys::LddKeyId::F1,
+            35 => crate::api::entitys::LddKeyId::F2,
+            36 => crate::api::entitys::LddKeyId::F3,
+            37 => crate::api::entitys::LddKeyId::F4,
+            38 => crate::api::entitys::LddKeyId::F5,
+            39 => crate::api::entitys::LddKeyId::F6,
+            40 => crate::api::entitys::LddKeyId::F7,
+            41 => crate::api::entitys::LddKeyId::F8,
+            42 => crate::api::entitys::LddKeyId::F9,
+            43 => crate::api::entitys::LddKeyId::F10,
+            44 => crate::api::entitys::LddKeyId::F11,
+            45 => crate::api::entitys::LddKeyId::F12,
+            46 => crate::api::entitys::LddKeyId::Zero,
+            47 => crate::api::entitys::LddKeyId::One,
+            48 => crate::api::entitys::LddKeyId::Two,
+            49 => crate::api::entitys::LddKeyId::Three,
+            50 => crate::api::entitys::LddKeyId::Four,
+            51 => crate::api::entitys::LddKeyId::Five,
+            52 => crate::api::entitys::LddKeyId::Six,
+            53 => crate::api::entitys::LddKeyId::Seven,
+            54 => crate::api::entitys::LddKeyId::Eight,
+            55 => crate::api::entitys::LddKeyId::Nine,
+            56 => crate::api::entitys::LddKeyId::Shift,
+            57 => crate::api::entitys::LddKeyId::LeftCtrl,
+            58 => crate::api::entitys::LddKeyId::RightCtrl,
+            59 => crate::api::entitys::LddKeyId::LeftAlt,
+            60 => crate::api::entitys::LddKeyId::RightAlt,
+            61 => crate::api::entitys::LddKeyId::CapsLock,
+            62 => crate::api::entitys::LddKeyId::Pause,
+            63 => crate::api::entitys::LddKeyId::PageUp,
+            64 => crate::api::entitys::LddKeyId::PageDown,
+            65 => crate::api::entitys::LddKeyId::PrintScreen,
+            66 => crate::api::entitys::LddKeyId::Insert,
+            67 => crate::api::entitys::LddKeyId::End,
+            68 => crate::api::entitys::LddKeyId::Home,
+            69 => crate::api::entitys::LddKeyId::Delete,
+            70 => crate::api::entitys::LddKeyId::Add,
+            71 => crate::api::entitys::LddKeyId::Subtract,
+            72 => crate::api::entitys::LddKeyId::Multiply,
+            73 => crate::api::entitys::LddKeyId::Separator,
+            74 => crate::api::entitys::LddKeyId::Decimal,
+            75 => crate::api::entitys::LddKeyId::Divide,
+            76 => crate::api::entitys::LddKeyId::BackTick,
+            77 => crate::api::entitys::LddKeyId::BackSlash,
+            78 => crate::api::entitys::LddKeyId::ForwardSlash,
+            79 => crate::api::entitys::LddKeyId::Plus,
+            80 => crate::api::entitys::LddKeyId::Minus,
+            81 => crate::api::entitys::LddKeyId::FullStop,
+            82 => crate::api::entitys::LddKeyId::Comma,
+            83 => crate::api::entitys::LddKeyId::Tab,
+            84 => crate::api::entitys::LddKeyId::Numlock,
+            85 => crate::api::entitys::LddKeyId::LeftSquareBracket,
+            86 => crate::api::entitys::LddKeyId::RightSquareBracket,
+            87 => crate::api::entitys::LddKeyId::SemiColon,
+            88 => crate::api::entitys::LddKeyId::Apostrophe,
+            89 => crate::api::entitys::LddKeyId::Hash,
+            _ => unreachable!("Invalid variant for LddKeyId: {}", inner),
+        };
+    }
+}
+
+impl SseDecode for crate::api::entitys::LddKeyboard {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut var_name = <String>::sse_decode(deserializer);
+        let mut var_serial = <Option<String>>::sse_decode(deserializer);
+        return crate::api::entitys::LddKeyboard {
+            name: var_name,
+            serial: var_serial,
+        };
+    }
+}
+
 impl SseDecode for crate::api::syste::LddKeyboardValue {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
@@ -666,6 +1289,44 @@ impl SseDecode for crate::api::syste::LddKeyboardValue {
     }
 }
 
+impl SseDecode for crate::api::entitys::LddRawEvent {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut tag_ = <i32>::sse_decode(deserializer);
+        match tag_ {
+            0 => {
+                let mut var_field0 = <usize>::sse_decode(deserializer);
+                let mut var_field1 = <crate::api::entitys::LddKeyId>::sse_decode(deserializer);
+                let mut var_field2 = <crate::api::entitys::LddState>::sse_decode(deserializer);
+                let mut var_field3 = <crate::api::entitys::LddKeyboard>::sse_decode(deserializer);
+                return crate::api::entitys::LddRawEvent::LddKeyboardEvent(
+                    var_field0, var_field1, var_field2, var_field3,
+                );
+            }
+            1 => {
+                let mut var_field0 = <Vec<crate::api::entitys::LddKeyId>>::sse_decode(deserializer);
+                let mut var_field1 = <crate::api::entitys::LddKeyboard>::sse_decode(deserializer);
+                return crate::api::entitys::LddRawEvent::ScanGunEvent(var_field0, var_field1);
+            }
+            _ => {
+                unimplemented!("");
+            }
+        }
+    }
+}
+
+impl SseDecode for crate::api::entitys::LddState {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut inner = <i32>::sse_decode(deserializer);
+        return match inner {
+            0 => crate::api::entitys::LddState::Pressed,
+            1 => crate::api::entitys::LddState::Released,
+            _ => unreachable!("Invalid variant for LddState: {}", inner),
+        };
+    }
+}
+
 impl SseDecode for Vec<crate::api::syste::LddEvent> {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
@@ -673,6 +1334,30 @@ impl SseDecode for Vec<crate::api::syste::LddEvent> {
         let mut ans_ = vec![];
         for idx_ in 0..len_ {
             ans_.push(<crate::api::syste::LddEvent>::sse_decode(deserializer));
+        }
+        return ans_;
+    }
+}
+
+impl SseDecode for Vec<crate::api::entitys::LddKeyId> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut len_ = <i32>::sse_decode(deserializer);
+        let mut ans_ = vec![];
+        for idx_ in 0..len_ {
+            ans_.push(<crate::api::entitys::LddKeyId>::sse_decode(deserializer));
+        }
+        return ans_;
+    }
+}
+
+impl SseDecode for Vec<crate::api::entitys::LddKeyboard> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut len_ = <i32>::sse_decode(deserializer);
+        let mut ans_ = vec![];
+        for idx_ in 0..len_ {
+            ans_.push(<crate::api::entitys::LddKeyboard>::sse_decode(deserializer));
         }
         return ans_;
     }
@@ -690,11 +1375,56 @@ impl SseDecode for Vec<u8> {
     }
 }
 
+impl SseDecode for crate::api::entitys::LogEntry {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        let mut var_timeMillis = <i64>::sse_decode(deserializer);
+        let mut var_level = <i32>::sse_decode(deserializer);
+        let mut var_tag = <String>::sse_decode(deserializer);
+        let mut var_msg = <String>::sse_decode(deserializer);
+        return crate::api::entitys::LogEntry {
+            time_millis: var_timeMillis,
+            level: var_level,
+            tag: var_tag,
+            msg: var_msg,
+        };
+    }
+}
+
+impl SseDecode for crate::api::logger::MyMobileLogger {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        return crate::api::logger::MyMobileLogger {};
+    }
+}
+
 impl SseDecode for Option<String> {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
         if (<bool>::sse_decode(deserializer)) {
             return Some(<String>::sse_decode(deserializer));
+        } else {
+            return None;
+        }
+    }
+}
+
+impl SseDecode for Option<bool> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        if (<bool>::sse_decode(deserializer)) {
+            return Some(<bool>::sse_decode(deserializer));
+        } else {
+            return None;
+        }
+    }
+}
+
+impl SseDecode for Option<crate::api::entitys::LddKeyboard> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        if (<bool>::sse_decode(deserializer)) {
+            return Some(<crate::api::entitys::LddKeyboard>::sse_decode(deserializer));
         } else {
             return None;
         }
@@ -720,6 +1450,13 @@ impl SseDecode for Option<usize> {
         } else {
             return None;
         }
+    }
+}
+
+impl SseDecode for crate::api::logger::SendToDartLogger {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
+        return crate::api::logger::SendToDartLogger {};
     }
 }
 
@@ -756,20 +1493,6 @@ impl SseDecode for usize {
     }
 }
 
-impl SseDecode for i32 {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
-        deserializer.cursor.read_i32::<NativeEndian>().unwrap()
-    }
-}
-
-impl SseDecode for bool {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    fn sse_decode(deserializer: &mut flutter_rust_bridge::for_generated::SseDeserializer) -> Self {
-        deserializer.cursor.read_u8().unwrap() != 0
-    }
-}
-
 fn pde_ffi_dispatcher_primary_impl(
     func_id: i32,
     port: flutter_rust_bridge::for_generated::MessagePort,
@@ -779,16 +1502,38 @@ fn pde_ffi_dispatcher_primary_impl(
 ) {
     // Codec=Pde (Serialization + dispatch), see doc to use other codecs
     match func_id {
-        1 => {
+        3 => {
             wire__crate__api__keyboard_listen__start_listen_impl(port, ptr, rust_vec_len, data_len)
         }
-        2 => wire__crate__api__syste__start_listen_system_event_impl(
+        4 => wire__crate__api__logger__create_log_stream_impl(port, ptr, rust_vec_len, data_len),
+        5 => wire__crate__api__logger__init_logger_impl(port, ptr, rust_vec_len, data_len),
+        6 => wire__crate__api__logger__my_mobile_logger_new_impl(port, ptr, rust_vec_len, data_len),
+        7 => wire__crate__api__logger__rust_set_up_impl(port, ptr, rust_vec_len, data_len),
+        8 => wire__crate__api__logger__send_to_dart_logger_new_impl(
             port,
             ptr,
             rust_vec_len,
             data_len,
         ),
-        3 => wire__crate__api__syste__start_listen_systen_event_by_ldd_impl(
+        9 => wire__crate__api__logger__send_to_dart_logger_set_stream_sink_impl(
+            port,
+            ptr,
+            rust_vec_len,
+            data_len,
+        ),
+        11 => wire__crate__api__multiinput__LddKeyboardManager_listen_ldd_keyboard_event_impl(
+            port,
+            ptr,
+            rust_vec_len,
+            data_len,
+        ),
+        14 => wire__crate__api__syste__start_listen_system_event_impl(
+            port,
+            ptr,
+            rust_vec_len,
+            data_len,
+        ),
+        15 => wire__crate__api__syste__start_listen_systen_event_by_ldd_impl(
             port,
             ptr,
             rust_vec_len,
@@ -806,11 +1551,46 @@ fn pde_ffi_dispatcher_sync_impl(
 ) -> flutter_rust_bridge::for_generated::WireSyncRust2DartSse {
     // Codec=Pde (Serialization + dispatch), see doc to use other codecs
     match func_id {
+        1 => {
+            wire__crate__api__entitys__ldd_key_id_key_id_to_string_impl(ptr, rust_vec_len, data_len)
+        }
+        2 => wire__crate__api__entitys__ldd_state_format_string_impl(ptr, rust_vec_len, data_len),
+        10 => wire__crate__api__multiinput__LddKeyboardManager_get_ldd_keyboard_list_impl(
+            ptr,
+            rust_vec_len,
+            data_len,
+        ),
+        12 => {
+            wire__crate__api__multiinput__LddKeyboardManager_new_impl(ptr, rust_vec_len, data_len)
+        }
+        13 => wire__crate__api__multiinput__LddKeyboardManager_register_impl(
+            ptr,
+            rust_vec_len,
+            data_len,
+        ),
         _ => unreachable!(),
     }
 }
 
 // Section: rust2dart
+
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for FrbWrapper<LddKeyboardManager> {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        flutter_rust_bridge::for_generated::rust_auto_opaque_encode::<_, MoiArc<_>>(self.0)
+            .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for FrbWrapper<LddKeyboardManager>
+{
+}
+
+impl flutter_rust_bridge::IntoIntoDart<FrbWrapper<LddKeyboardManager>> for LddKeyboardManager {
+    fn into_into_dart(self) -> FrbWrapper<LddKeyboardManager> {
+        self.into()
+    }
+}
 
 // Codec=Dco (DartCObject based), see doc to use other codecs
 impl flutter_rust_bridge::IntoDart for crate::api::syste::LddButton {
@@ -1024,6 +1804,133 @@ impl flutter_rust_bridge::IntoIntoDart<crate::api::syste::LddKey> for crate::api
     }
 }
 // Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::entitys::LddKeyId {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        match self {
+            Self::Escape => 0.into_dart(),
+            Self::Return => 1.into_dart(),
+            Self::Backspace => 2.into_dart(),
+            Self::Left => 3.into_dart(),
+            Self::Right => 4.into_dart(),
+            Self::Up => 5.into_dart(),
+            Self::Down => 6.into_dart(),
+            Self::Space => 7.into_dart(),
+            Self::A => 8.into_dart(),
+            Self::B => 9.into_dart(),
+            Self::C => 10.into_dart(),
+            Self::D => 11.into_dart(),
+            Self::E => 12.into_dart(),
+            Self::F => 13.into_dart(),
+            Self::G => 14.into_dart(),
+            Self::H => 15.into_dart(),
+            Self::I => 16.into_dart(),
+            Self::J => 17.into_dart(),
+            Self::K => 18.into_dart(),
+            Self::L => 19.into_dart(),
+            Self::M => 20.into_dart(),
+            Self::N => 21.into_dart(),
+            Self::O => 22.into_dart(),
+            Self::P => 23.into_dart(),
+            Self::Q => 24.into_dart(),
+            Self::R => 25.into_dart(),
+            Self::S => 26.into_dart(),
+            Self::T => 27.into_dart(),
+            Self::U => 28.into_dart(),
+            Self::V => 29.into_dart(),
+            Self::W => 30.into_dart(),
+            Self::X => 31.into_dart(),
+            Self::Y => 32.into_dart(),
+            Self::Z => 33.into_dart(),
+            Self::F1 => 34.into_dart(),
+            Self::F2 => 35.into_dart(),
+            Self::F3 => 36.into_dart(),
+            Self::F4 => 37.into_dart(),
+            Self::F5 => 38.into_dart(),
+            Self::F6 => 39.into_dart(),
+            Self::F7 => 40.into_dart(),
+            Self::F8 => 41.into_dart(),
+            Self::F9 => 42.into_dart(),
+            Self::F10 => 43.into_dart(),
+            Self::F11 => 44.into_dart(),
+            Self::F12 => 45.into_dart(),
+            Self::Zero => 46.into_dart(),
+            Self::One => 47.into_dart(),
+            Self::Two => 48.into_dart(),
+            Self::Three => 49.into_dart(),
+            Self::Four => 50.into_dart(),
+            Self::Five => 51.into_dart(),
+            Self::Six => 52.into_dart(),
+            Self::Seven => 53.into_dart(),
+            Self::Eight => 54.into_dart(),
+            Self::Nine => 55.into_dart(),
+            Self::Shift => 56.into_dart(),
+            Self::LeftCtrl => 57.into_dart(),
+            Self::RightCtrl => 58.into_dart(),
+            Self::LeftAlt => 59.into_dart(),
+            Self::RightAlt => 60.into_dart(),
+            Self::CapsLock => 61.into_dart(),
+            Self::Pause => 62.into_dart(),
+            Self::PageUp => 63.into_dart(),
+            Self::PageDown => 64.into_dart(),
+            Self::PrintScreen => 65.into_dart(),
+            Self::Insert => 66.into_dart(),
+            Self::End => 67.into_dart(),
+            Self::Home => 68.into_dart(),
+            Self::Delete => 69.into_dart(),
+            Self::Add => 70.into_dart(),
+            Self::Subtract => 71.into_dart(),
+            Self::Multiply => 72.into_dart(),
+            Self::Separator => 73.into_dart(),
+            Self::Decimal => 74.into_dart(),
+            Self::Divide => 75.into_dart(),
+            Self::BackTick => 76.into_dart(),
+            Self::BackSlash => 77.into_dart(),
+            Self::ForwardSlash => 78.into_dart(),
+            Self::Plus => 79.into_dart(),
+            Self::Minus => 80.into_dart(),
+            Self::FullStop => 81.into_dart(),
+            Self::Comma => 82.into_dart(),
+            Self::Tab => 83.into_dart(),
+            Self::Numlock => 84.into_dart(),
+            Self::LeftSquareBracket => 85.into_dart(),
+            Self::RightSquareBracket => 86.into_dart(),
+            Self::SemiColon => 87.into_dart(),
+            Self::Apostrophe => 88.into_dart(),
+            Self::Hash => 89.into_dart(),
+            _ => unreachable!(),
+        }
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive for crate::api::entitys::LddKeyId {}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::entitys::LddKeyId>
+    for crate::api::entitys::LddKeyId
+{
+    fn into_into_dart(self) -> crate::api::entitys::LddKeyId {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::entitys::LddKeyboard {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        [
+            self.name.into_into_dart().into_dart(),
+            self.serial.into_into_dart().into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::entitys::LddKeyboard
+{
+}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::entitys::LddKeyboard>
+    for crate::api::entitys::LddKeyboard
+{
+    fn into_into_dart(self) -> crate::api::entitys::LddKeyboard {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
 impl flutter_rust_bridge::IntoDart for crate::api::syste::LddKeyboardValue {
     fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
         match self {
@@ -1062,11 +1969,136 @@ impl flutter_rust_bridge::IntoIntoDart<crate::api::syste::LddKeyboardValue>
         self
     }
 }
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::entitys::LddRawEvent {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        match self {
+            crate::api::entitys::LddRawEvent::LddKeyboardEvent(field0, field1, field2, field3) => [
+                0.into_dart(),
+                field0.into_into_dart().into_dart(),
+                field1.into_into_dart().into_dart(),
+                field2.into_into_dart().into_dart(),
+                field3.into_into_dart().into_dart(),
+            ]
+            .into_dart(),
+            crate::api::entitys::LddRawEvent::ScanGunEvent(field0, field1) => [
+                1.into_dart(),
+                field0.into_into_dart().into_dart(),
+                field1.into_into_dart().into_dart(),
+            ]
+            .into_dart(),
+            _ => {
+                unimplemented!("");
+            }
+        }
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::entitys::LddRawEvent
+{
+}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::entitys::LddRawEvent>
+    for crate::api::entitys::LddRawEvent
+{
+    fn into_into_dart(self) -> crate::api::entitys::LddRawEvent {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::entitys::LddState {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        match self {
+            Self::Pressed => 0.into_dart(),
+            Self::Released => 1.into_dart(),
+            _ => unreachable!(),
+        }
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive for crate::api::entitys::LddState {}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::entitys::LddState>
+    for crate::api::entitys::LddState
+{
+    fn into_into_dart(self) -> crate::api::entitys::LddState {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::entitys::LogEntry {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        [
+            self.time_millis.into_into_dart().into_dart(),
+            self.level.into_into_dart().into_dart(),
+            self.tag.into_into_dart().into_dart(),
+            self.msg.into_into_dart().into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive for crate::api::entitys::LogEntry {}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::entitys::LogEntry>
+    for crate::api::entitys::LogEntry
+{
+    fn into_into_dart(self) -> crate::api::entitys::LogEntry {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::logger::MyMobileLogger {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        Vec::<u8>::new().into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::logger::MyMobileLogger
+{
+}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::logger::MyMobileLogger>
+    for crate::api::logger::MyMobileLogger
+{
+    fn into_into_dart(self) -> crate::api::logger::MyMobileLogger {
+        self
+    }
+}
+// Codec=Dco (DartCObject based), see doc to use other codecs
+impl flutter_rust_bridge::IntoDart for crate::api::logger::SendToDartLogger {
+    fn into_dart(self) -> flutter_rust_bridge::for_generated::DartAbi {
+        Vec::<u8>::new().into_dart()
+    }
+}
+impl flutter_rust_bridge::for_generated::IntoDartExceptPrimitive
+    for crate::api::logger::SendToDartLogger
+{
+}
+impl flutter_rust_bridge::IntoIntoDart<crate::api::logger::SendToDartLogger>
+    for crate::api::logger::SendToDartLogger
+{
+    fn into_into_dart(self) -> crate::api::logger::SendToDartLogger {
+        self
+    }
+}
 
 impl SseEncode for flutter_rust_bridge::for_generated::anyhow::Error {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
         <String>::sse_encode(format!("{:?}", self), serializer);
+    }
+}
+
+impl SseEncode for LddKeyboardManager {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>>>::sse_encode(flutter_rust_bridge::for_generated::rust_auto_opaque_encode::<_, MoiArc<_>>(self), serializer);
+    }
+}
+
+impl SseEncode
+    for RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>>
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        let (ptr, size) = self.sse_encode_raw();
+        <usize>::sse_encode(ptr, serializer);
+        <i32>::sse_encode(size, serializer);
     }
 }
 
@@ -1091,6 +2123,24 @@ impl SseEncode
     }
 }
 
+impl SseEncode
+    for StreamSink<crate::api::entitys::LddRawEvent, flutter_rust_bridge::for_generated::SseCodec>
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        unimplemented!("")
+    }
+}
+
+impl SseEncode
+    for StreamSink<crate::api::entitys::LogEntry, flutter_rust_bridge::for_generated::SseCodec>
+{
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        unimplemented!("")
+    }
+}
+
 impl SseEncode for String {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
@@ -1105,10 +2155,24 @@ impl SseEncode for u128 {
     }
 }
 
+impl SseEncode for bool {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        serializer.cursor.write_u8(self as _).unwrap();
+    }
+}
+
 impl SseEncode for f64 {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
         serializer.cursor.write_f64::<NativeEndian>(self).unwrap();
+    }
+}
+
+impl SseEncode for i32 {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        serializer.cursor.write_i32::<NativeEndian>(self).unwrap();
     }
 }
 
@@ -1518,6 +2582,118 @@ impl SseEncode for crate::api::syste::LddKey {
     }
 }
 
+impl SseEncode for crate::api::entitys::LddKeyId {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(
+            match self {
+                crate::api::entitys::LddKeyId::Escape => 0,
+                crate::api::entitys::LddKeyId::Return => 1,
+                crate::api::entitys::LddKeyId::Backspace => 2,
+                crate::api::entitys::LddKeyId::Left => 3,
+                crate::api::entitys::LddKeyId::Right => 4,
+                crate::api::entitys::LddKeyId::Up => 5,
+                crate::api::entitys::LddKeyId::Down => 6,
+                crate::api::entitys::LddKeyId::Space => 7,
+                crate::api::entitys::LddKeyId::A => 8,
+                crate::api::entitys::LddKeyId::B => 9,
+                crate::api::entitys::LddKeyId::C => 10,
+                crate::api::entitys::LddKeyId::D => 11,
+                crate::api::entitys::LddKeyId::E => 12,
+                crate::api::entitys::LddKeyId::F => 13,
+                crate::api::entitys::LddKeyId::G => 14,
+                crate::api::entitys::LddKeyId::H => 15,
+                crate::api::entitys::LddKeyId::I => 16,
+                crate::api::entitys::LddKeyId::J => 17,
+                crate::api::entitys::LddKeyId::K => 18,
+                crate::api::entitys::LddKeyId::L => 19,
+                crate::api::entitys::LddKeyId::M => 20,
+                crate::api::entitys::LddKeyId::N => 21,
+                crate::api::entitys::LddKeyId::O => 22,
+                crate::api::entitys::LddKeyId::P => 23,
+                crate::api::entitys::LddKeyId::Q => 24,
+                crate::api::entitys::LddKeyId::R => 25,
+                crate::api::entitys::LddKeyId::S => 26,
+                crate::api::entitys::LddKeyId::T => 27,
+                crate::api::entitys::LddKeyId::U => 28,
+                crate::api::entitys::LddKeyId::V => 29,
+                crate::api::entitys::LddKeyId::W => 30,
+                crate::api::entitys::LddKeyId::X => 31,
+                crate::api::entitys::LddKeyId::Y => 32,
+                crate::api::entitys::LddKeyId::Z => 33,
+                crate::api::entitys::LddKeyId::F1 => 34,
+                crate::api::entitys::LddKeyId::F2 => 35,
+                crate::api::entitys::LddKeyId::F3 => 36,
+                crate::api::entitys::LddKeyId::F4 => 37,
+                crate::api::entitys::LddKeyId::F5 => 38,
+                crate::api::entitys::LddKeyId::F6 => 39,
+                crate::api::entitys::LddKeyId::F7 => 40,
+                crate::api::entitys::LddKeyId::F8 => 41,
+                crate::api::entitys::LddKeyId::F9 => 42,
+                crate::api::entitys::LddKeyId::F10 => 43,
+                crate::api::entitys::LddKeyId::F11 => 44,
+                crate::api::entitys::LddKeyId::F12 => 45,
+                crate::api::entitys::LddKeyId::Zero => 46,
+                crate::api::entitys::LddKeyId::One => 47,
+                crate::api::entitys::LddKeyId::Two => 48,
+                crate::api::entitys::LddKeyId::Three => 49,
+                crate::api::entitys::LddKeyId::Four => 50,
+                crate::api::entitys::LddKeyId::Five => 51,
+                crate::api::entitys::LddKeyId::Six => 52,
+                crate::api::entitys::LddKeyId::Seven => 53,
+                crate::api::entitys::LddKeyId::Eight => 54,
+                crate::api::entitys::LddKeyId::Nine => 55,
+                crate::api::entitys::LddKeyId::Shift => 56,
+                crate::api::entitys::LddKeyId::LeftCtrl => 57,
+                crate::api::entitys::LddKeyId::RightCtrl => 58,
+                crate::api::entitys::LddKeyId::LeftAlt => 59,
+                crate::api::entitys::LddKeyId::RightAlt => 60,
+                crate::api::entitys::LddKeyId::CapsLock => 61,
+                crate::api::entitys::LddKeyId::Pause => 62,
+                crate::api::entitys::LddKeyId::PageUp => 63,
+                crate::api::entitys::LddKeyId::PageDown => 64,
+                crate::api::entitys::LddKeyId::PrintScreen => 65,
+                crate::api::entitys::LddKeyId::Insert => 66,
+                crate::api::entitys::LddKeyId::End => 67,
+                crate::api::entitys::LddKeyId::Home => 68,
+                crate::api::entitys::LddKeyId::Delete => 69,
+                crate::api::entitys::LddKeyId::Add => 70,
+                crate::api::entitys::LddKeyId::Subtract => 71,
+                crate::api::entitys::LddKeyId::Multiply => 72,
+                crate::api::entitys::LddKeyId::Separator => 73,
+                crate::api::entitys::LddKeyId::Decimal => 74,
+                crate::api::entitys::LddKeyId::Divide => 75,
+                crate::api::entitys::LddKeyId::BackTick => 76,
+                crate::api::entitys::LddKeyId::BackSlash => 77,
+                crate::api::entitys::LddKeyId::ForwardSlash => 78,
+                crate::api::entitys::LddKeyId::Plus => 79,
+                crate::api::entitys::LddKeyId::Minus => 80,
+                crate::api::entitys::LddKeyId::FullStop => 81,
+                crate::api::entitys::LddKeyId::Comma => 82,
+                crate::api::entitys::LddKeyId::Tab => 83,
+                crate::api::entitys::LddKeyId::Numlock => 84,
+                crate::api::entitys::LddKeyId::LeftSquareBracket => 85,
+                crate::api::entitys::LddKeyId::RightSquareBracket => 86,
+                crate::api::entitys::LddKeyId::SemiColon => 87,
+                crate::api::entitys::LddKeyId::Apostrophe => 88,
+                crate::api::entitys::LddKeyId::Hash => 89,
+                _ => {
+                    unimplemented!("");
+                }
+            },
+            serializer,
+        );
+    }
+}
+
+impl SseEncode for crate::api::entitys::LddKeyboard {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <String>::sse_encode(self.name, serializer);
+        <Option<String>>::sse_encode(self.serial, serializer);
+    }
+}
+
 impl SseEncode for crate::api::syste::LddKeyboardValue {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
@@ -1547,12 +2723,71 @@ impl SseEncode for crate::api::syste::LddKeyboardValue {
     }
 }
 
+impl SseEncode for crate::api::entitys::LddRawEvent {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        match self {
+            crate::api::entitys::LddRawEvent::LddKeyboardEvent(field0, field1, field2, field3) => {
+                <i32>::sse_encode(0, serializer);
+                <usize>::sse_encode(field0, serializer);
+                <crate::api::entitys::LddKeyId>::sse_encode(field1, serializer);
+                <crate::api::entitys::LddState>::sse_encode(field2, serializer);
+                <crate::api::entitys::LddKeyboard>::sse_encode(field3, serializer);
+            }
+            crate::api::entitys::LddRawEvent::ScanGunEvent(field0, field1) => {
+                <i32>::sse_encode(1, serializer);
+                <Vec<crate::api::entitys::LddKeyId>>::sse_encode(field0, serializer);
+                <crate::api::entitys::LddKeyboard>::sse_encode(field1, serializer);
+            }
+            _ => {
+                unimplemented!("");
+            }
+        }
+    }
+}
+
+impl SseEncode for crate::api::entitys::LddState {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(
+            match self {
+                crate::api::entitys::LddState::Pressed => 0,
+                crate::api::entitys::LddState::Released => 1,
+                _ => {
+                    unimplemented!("");
+                }
+            },
+            serializer,
+        );
+    }
+}
+
 impl SseEncode for Vec<crate::api::syste::LddEvent> {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
         <i32>::sse_encode(self.len() as _, serializer);
         for item in self {
             <crate::api::syste::LddEvent>::sse_encode(item, serializer);
+        }
+    }
+}
+
+impl SseEncode for Vec<crate::api::entitys::LddKeyId> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(self.len() as _, serializer);
+        for item in self {
+            <crate::api::entitys::LddKeyId>::sse_encode(item, serializer);
+        }
+    }
+}
+
+impl SseEncode for Vec<crate::api::entitys::LddKeyboard> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i32>::sse_encode(self.len() as _, serializer);
+        for item in self {
+            <crate::api::entitys::LddKeyboard>::sse_encode(item, serializer);
         }
     }
 }
@@ -1567,12 +2802,47 @@ impl SseEncode for Vec<u8> {
     }
 }
 
+impl SseEncode for crate::api::entitys::LogEntry {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <i64>::sse_encode(self.time_millis, serializer);
+        <i32>::sse_encode(self.level, serializer);
+        <String>::sse_encode(self.tag, serializer);
+        <String>::sse_encode(self.msg, serializer);
+    }
+}
+
+impl SseEncode for crate::api::logger::MyMobileLogger {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {}
+}
+
 impl SseEncode for Option<String> {
     // Codec=Sse (Serialization based), see doc to use other codecs
     fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
         <bool>::sse_encode(self.is_some(), serializer);
         if let Some(value) = self {
             <String>::sse_encode(value, serializer);
+        }
+    }
+}
+
+impl SseEncode for Option<bool> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <bool>::sse_encode(self.is_some(), serializer);
+        if let Some(value) = self {
+            <bool>::sse_encode(value, serializer);
+        }
+    }
+}
+
+impl SseEncode for Option<crate::api::entitys::LddKeyboard> {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
+        <bool>::sse_encode(self.is_some(), serializer);
+        if let Some(value) = self {
+            <crate::api::entitys::LddKeyboard>::sse_encode(value, serializer);
         }
     }
 }
@@ -1595,6 +2865,11 @@ impl SseEncode for Option<usize> {
             <usize>::sse_encode(value, serializer);
         }
     }
+}
+
+impl SseEncode for crate::api::logger::SendToDartLogger {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {}
 }
 
 impl SseEncode for u32 {
@@ -1633,20 +2908,6 @@ impl SseEncode for usize {
     }
 }
 
-impl SseEncode for i32 {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
-        serializer.cursor.write_i32::<NativeEndian>(self).unwrap();
-    }
-}
-
-impl SseEncode for bool {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    fn sse_encode(self, serializer: &mut flutter_rust_bridge::for_generated::SseSerializer) {
-        serializer.cursor.write_u8(self as _).unwrap();
-    }
-}
-
 #[cfg(not(target_family = "wasm"))]
 mod io {
     // This file is automatically generated, so please do not edit it.
@@ -1655,6 +2916,7 @@ mod io {
     // Section: imports
 
     use super::*;
+    use crate::api::multiinput::*;
     use flutter_rust_bridge::for_generated::byteorder::{
         NativeEndian, ReadBytesExt, WriteBytesExt,
     };
@@ -1664,6 +2926,20 @@ mod io {
     // Section: boilerplate
 
     flutter_rust_bridge::frb_generated_boilerplate_io!();
+
+    #[no_mangle]
+    pub extern "C" fn frbgen_ldd_system_listen_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+        ptr: *const std::ffi::c_void,
+    ) {
+        MoiArc::<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>>::increment_strong_count(ptr as _);
+    }
+
+    #[no_mangle]
+    pub extern "C" fn frbgen_ldd_system_listen_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+        ptr: *const std::ffi::c_void,
+    ) {
+        MoiArc::<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>>::decrement_strong_count(ptr as _);
+    }
 }
 #[cfg(not(target_family = "wasm"))]
 pub use io::*;
@@ -1677,6 +2953,7 @@ mod web {
     // Section: imports
 
     use super::*;
+    use crate::api::multiinput::*;
     use flutter_rust_bridge::for_generated::byteorder::{
         NativeEndian, ReadBytesExt, WriteBytesExt,
     };
@@ -1688,6 +2965,20 @@ mod web {
     // Section: boilerplate
 
     flutter_rust_bridge::frb_generated_boilerplate_web!();
+
+    #[wasm_bindgen]
+    pub fn rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+        ptr: *const std::ffi::c_void,
+    ) {
+        MoiArc::<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>>::increment_strong_count(ptr as _);
+    }
+
+    #[wasm_bindgen]
+    pub fn rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLddKeyboardManager(
+        ptr: *const std::ffi::c_void,
+    ) {
+        MoiArc::<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LddKeyboardManager>>::decrement_strong_count(ptr as _);
+    }
 }
 #[cfg(target_family = "wasm")]
 pub use web::*;
