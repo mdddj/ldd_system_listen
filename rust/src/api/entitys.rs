@@ -158,6 +158,16 @@ pub enum LddKeyId {
     SemiColon,
     Apostrophe,
     Hash,
+    NumPad0,
+    NumPad1,
+    NumPad2,
+    NumPad3,
+    NumPad4,
+    NumPad5,
+    NumPad6,
+    NumPad7,
+    NumPad8,
+    NumPad9
 }
 
 impl LddKeyId  {
@@ -194,16 +204,16 @@ impl LddKeyId  {
             LddKeyId::X => "x",
             LddKeyId::Y => "y",
             LddKeyId::Z => "z",
-            LddKeyId::Zero => "0",
-            LddKeyId::One => "1",
-            LddKeyId::Two => "2",
-            LddKeyId::Three => "3",
-            LddKeyId::Four => "4",
-            LddKeyId::Five => "5",
-            LddKeyId::Six => "6",
-            LddKeyId::Seven => "7",
-            LddKeyId::Eight => "8",
-            LddKeyId::Nine => "9",
+            LddKeyId::Zero | LddKeyId::NumPad0 => "0",
+            LddKeyId::One | LddKeyId::NumPad1 => "1",
+            LddKeyId::Two | LddKeyId::NumPad2 => "2",
+            LddKeyId::Three | LddKeyId::NumPad3 => "3",
+            LddKeyId::Four | LddKeyId::NumPad4 => "4",
+            LddKeyId::Five | LddKeyId::NumPad5 => "5",
+            LddKeyId::Six | LddKeyId::NumPad6 => "6",
+            LddKeyId::Seven | LddKeyId::NumPad7 => "7",
+            LddKeyId::Eight | LddKeyId::NumPad8 => "8",
+            LddKeyId::Nine | LddKeyId::NumPad9 => "9",
             _ => &f,
         };
         str.to_owned()
@@ -304,6 +314,16 @@ impl From<KeyId> for LddKeyId {
             KeyId::SemiColon => LddKeyId::SemiColon,
             KeyId::Apostrophe => LddKeyId::Apostrophe,
             KeyId::Hash => LddKeyId::Hash,
+            KeyId::NumPad0 => LddKeyId::NumPad0,
+            KeyId::NumPad1 => LddKeyId::NumPad1,
+            KeyId::NumPad2 => LddKeyId::NumPad2,
+            KeyId::NumPad3 => LddKeyId::NumPad3,
+            KeyId::NumPad4 => LddKeyId::NumPad4,
+            KeyId::NumPad5 => LddKeyId::NumPad5,
+            KeyId::NumPad6 => LddKeyId::NumPad6,
+            KeyId::NumPad7 => LddKeyId::NumPad7,
+            KeyId::NumPad8 => LddKeyId::NumPad8,
+            KeyId::NumPad9 => LddKeyId::NumPad9,
         }
     }
 }

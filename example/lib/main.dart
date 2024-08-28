@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {}); //刷新ui
 
     stream ??= keyboardManager
-        .listenLddKeyboardEvent(gunDevice: keyboards.first)
+        .listenLddKeyboardEvent(gunDevice: keyboards.last)
         .listen(onKeyboardListen);
   }
 

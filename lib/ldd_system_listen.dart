@@ -11,6 +11,9 @@ extension LddRawEventEx on LddRawEvent {
     when(
       lddKeyboardEvent: (field0, field1, field2, field3) {
         print("普通键盘事件:${field1.keyIdToString()},类型:${field2.formatString()}");
+        if (field1 == LddKeyId.numPad0) {
+          print("小键盘0");
+        }
       },
       scanGunEvent: (field0, field1) {
         print("扫码枪事件:${field0.map((item) => item.keyIdToString())}");
