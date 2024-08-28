@@ -1,8 +1,9 @@
 import 'package:ldd_system_listen/api/entitys.dart';
 import 'package:ldd_system_listen/frb_generated.dart';
 
-void initLib() {
-  RustLib.init();
+///初始化lib
+Future<void> initLddSystenListen() async {
+  await RustLib.init();
 }
 
 extension LddRawEventEx on LddRawEvent {

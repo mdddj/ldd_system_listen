@@ -3,11 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ldd_system_listen/api/entitys.dart';
 import 'package:ldd_system_listen/api/multiinput.dart';
-import 'package:ldd_system_listen/frb_generated.dart';
 import 'package:ldd_system_listen/ldd_system_listen.dart';
 
 Future<void> main() async {
-  await RustLib.init();
+  await initLddSystenListen();
   runApp(const MyApp());
 }
 
