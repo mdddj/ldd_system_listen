@@ -1,14 +1,14 @@
 use std::sync::Once;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
-
+use crate::frb_generated::StreamSink;
 use lazy_static::lazy_static;
 use log::{error, info, warn, LevelFilter, Log, Metadata, Record};
 use parking_lot::RwLock;
 use simplelog::*;
-use crate::frb_generated::StreamSink;
 
 use super::entitys::LogEntry;
+use super::level_filter::LddLevelFilter;
 
 pub fn create_log_stream(s: StreamSink<LogEntry>) -> anyhow::Result<()> {
     SendToDartLogger::set_stream_sink(s);
@@ -19,16 +19,15 @@ pub fn rust_set_up() {
     init_logger();
 }
 
-
 static INIT_LOGGER_ONCE: Once = Once::new();
 
 pub fn init_logger() {
     // https://stackoverflow.com/questions/30177845/how-to-initialize-the-logger-for-integration-tests
     INIT_LOGGER_ONCE.call_once(|| {
         let level = if cfg!(debug_assertions) {
-            LevelFilter::Debug
+            LddLevelFilter::Debug
         } else {
-            LevelFilter::Warn
+            LddLevelFilter::Warn
         };
 
         assert!(
@@ -39,13 +38,15 @@ pub fn init_logger() {
         );
 
         CombinedLogger::init(vec![
-            Box::new(SendToDartLogger::new()),
-            Box::new(MyMobileLogger::new()),
+            Box::new(SendToDartLogger::new(level)),
+            Box::new(MyMobileLogger::new(level)),
             // #[cfg(not(any(target_os = "android", target_os = "ios")))]
             TermLogger::new(
-                level,
+                level.into(),
                 ConfigBuilder::new()
-                    .set_time_format_custom(format_description!("[hour]:[minute]:[second].[subsecond]"))
+                    .set_time_format_custom(format_description!(
+                        "[hour]:[minute]:[second].[subsecond]"
+                    ))
                     .build(),
                 TerminalMode::Mixed,
                 ColorChoice::Auto,
@@ -69,7 +70,7 @@ lazy_static! {
 }
 
 pub struct SendToDartLogger {
-
+    level: LddLevelFilter,
 }
 
 impl SendToDartLogger {
@@ -89,8 +90,8 @@ impl SendToDartLogger {
         }
     }
 
-    pub fn new() -> Self {
-        SendToDartLogger { }
+    pub fn new(level: LddLevelFilter) -> Self {
+        SendToDartLogger { level }
     }
 
     fn record_to_entry(record: &Record) -> LogEntry {
@@ -144,8 +145,6 @@ impl Log for SendToDartLogger {
 }
 
 impl SharedLogger for SendToDartLogger {
-
-
     fn config(&self) -> Option<&Config> {
         None
     }
@@ -153,22 +152,22 @@ impl SharedLogger for SendToDartLogger {
     fn as_log(self: Box<Self>) -> Box<dyn Log> {
         Box::new(*self)
     }
-    
+
     fn level(&self) -> LevelFilter {
-        LevelFilter::Debug
+        self.level.into()
     }
 }
 
 pub struct MyMobileLogger {
-
+    level: LddLevelFilter,
     #[cfg(target_os = "ios")]
     ios_logger: oslog::OsLogger,
 }
 
 impl MyMobileLogger {
-    pub fn new() -> Self {
+    pub fn new(level: LddLevelFilter) -> Self {
         MyMobileLogger {
-        
+            level,
             #[cfg(target_os = "ios")]
             ios_logger: oslog::OsLogger::new("vision_utils_rs"),
         }
@@ -203,7 +202,7 @@ impl Log for MyMobileLogger {
 
 impl SharedLogger for MyMobileLogger {
     fn level(&self) -> LevelFilter {
-        LevelFilter::Debug
+        self.level.into()
     }
 
     fn config(&self) -> Option<&Config> {
