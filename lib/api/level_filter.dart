@@ -5,9 +5,15 @@
 
 import '../frb_generated.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
-import 'syste.dart';
 
-// These functions are ignored because they are not marked as `pub`: `send_to_flutter`
+// These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `assert_receiver_is_total_eq`, `clone`, `cmp`, `eq`, `fmt`, `from`, `from`, `hash`, `partial_cmp`
 
-Stream<LddKeyboardValue> startListen() =>
-    RustLib.instance.api.crateApiKeyboardListenStartListen();
+enum LddLevelFilter {
+  off,
+  error,
+  warn,
+  info,
+  debug,
+  trace,
+  ;
+}

@@ -31,7 +31,7 @@ pub fn init_logger() {
         };
 
         assert!(
-            level <= log::STATIC_MAX_LEVEL,
+            level <= log::STATIC_MAX_LEVEL.into(),
             "Should respect log::STATIC_MAX_LEVEL={:?}, which is done in compile time. level{:?}",
             log::STATIC_MAX_LEVEL,
             level
@@ -70,7 +70,7 @@ lazy_static! {
 }
 
 pub struct SendToDartLogger {
-    level: LddLevelFilter,
+    pub level: LddLevelFilter,
 }
 
 impl SendToDartLogger {
@@ -132,7 +132,7 @@ impl Log for SendToDartLogger {
         true
     }
 
-    fn log(&self, record: &Record) {
+     fn log(&self, record: &Record) {
         let entry = Self::record_to_entry(record);
         if let Some(sink) = &*SEND_TO_DART_LOGGER_STREAM_SINK.read() {
             sink.add(entry);
@@ -159,7 +159,7 @@ impl SharedLogger for SendToDartLogger {
 }
 
 pub struct MyMobileLogger {
-    level: LddLevelFilter,
+    pub level: LddLevelFilter,
     #[cfg(target_os = "ios")]
     ios_logger: oslog::OsLogger,
 }
