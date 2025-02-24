@@ -7,13 +7,13 @@ edition = "2021"
 crate-type = ["cdylib", "staticlib"]
 
 [dependencies]
-rdev = { version = "0.5.3", futures = ["serialize"] }
+rdev = { version = "0.5.3", features = ["serialize"] }
 flutter_rust_bridge = "=2.1.0"
-multiinput = { git="https://github.com/mdddj/multiinput-rust"}
+multiinput = { git = "https://github.com/mdddj/multiinput-rust" }
 lazy_static = "1.5.0"
 log = "0.4.22"
 parking_lot = "0.12.3"
-simplelog = {version="0.12.2",futures=["time"]}
+simplelog = { version = "0.12.2", features = ["default"] }
 time = "0.3.36"
 anyhow = "1.0.86"
-tokio = { version="1.39.3",futures=["sync"]}
+tokio = { version = "1.39.3", features = ["sync"] }

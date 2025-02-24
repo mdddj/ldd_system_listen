@@ -3,15 +3,10 @@ use log::LevelFilter;
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Debug, Hash)]
 pub enum LddLevelFilter {
     Off,
-
     Error,
-
     Warn,
-
     Info,
-
     Debug,
-
     Trace,
 }
 
